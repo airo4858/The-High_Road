@@ -68,10 +68,11 @@ light_energy = 0.921
 shadow_enabled = true
 
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.361, 13.1082, -133.453)
+transform = Transform3D(-0.518908, 0, 0.85483, 0, 1, 0, -0.85483, 0, -0.518908, 222.624, 10.3844, -126.523)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://"
 material = SubResource("Terrain3DMaterial_iu6mx")
 assets = ExtResource("3_jfx6l")
 top_level = true
+metadata/_edit_lock_ = true
