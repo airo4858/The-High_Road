@@ -55,6 +55,7 @@ _shader_parameters = {
 "projection_threshold": 0.8,
 "world_space_normal_blend": true
 }
+world_background = 0
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155731, 0.205719, -0.169888)

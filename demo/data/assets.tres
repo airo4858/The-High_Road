@@ -38,12 +38,14 @@ last_shadow_lod = 3
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_mdqir"]
 name = "Mountain"
+albedo_color = Color(0.956646, 0.79528, 0.729164, 1)
 albedo_texture = ExtResource("2_82kc5")
 normal_texture = ExtResource("3_wncaf")
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_liqxi"]
 name = "Spikes"
 id = 1
+albedo_color = Color(0.802822, 0.814143, 0.789395, 1)
 albedo_texture = ExtResource("4_hxumi")
 normal_texture = ExtResource("3_wncaf")
 detiling_rotation = 0.251
@@ -52,6 +54,7 @@ detiling_shift = 0.105
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_o8lvy"]
 name = "Grass"
 id = 2
+albedo_color = Color(0.884527, 0.992434, 0.821095, 1)
 albedo_texture = ExtResource("5_psxcy")
 normal_texture = ExtResource("6_nge0i")
 detiling_rotation = 0.23
@@ -60,12 +63,14 @@ detiling_shift = 0.138
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_nyfwc"]
 name = "Path"
 id = 3
+albedo_color = Color(0.830001, 0.990725, 0.702631, 1)
 albedo_texture = ExtResource("7_c8dja")
 normal_texture = ExtResource("6_nge0i")
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_6hlhs"]
 name = "Mud"
 id = 4
+albedo_color = Color(0.919903, 0.807501, 0.716298, 1)
 albedo_texture = ExtResource("8_y1010")
 normal_texture = ExtResource("6_nge0i")
 detiling_rotation = 0.148
