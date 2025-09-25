@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=10 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
 
-[sub_resource type="Gradient" id="Gradient_lgbns"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
+
+[sub_resource type="Sky" id="Sky_wj5k5"]
+sky_material = SubResource("ProceduralSkyMaterial_73qkl")
+
+[sub_resource type="Environment" id="Environment_wm5ac"]
+background_mode = 2
+sky = SubResource("Sky_wj5k5")
+
+[sub_resource type="Gradient" id="Gradient_qhbb0"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_idf3a"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b1sql"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -19,12 +28,12 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sifxt"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lyonx"]
 seamless = true
-color_ramp = SubResource("Gradient_lgbns")
-noise = SubResource("FastNoiseLite_idf3a")
+color_ramp = SubResource("Gradient_qhbb0")
+noise = SubResource("FastNoiseLite_b1sql")
 
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_p4qbs"]
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_iu6mx"]
 _shader_parameters = {
 "bias_distance": 512.0,
 "blend_sharpness": 0.87,
@@ -41,7 +50,7 @@ _shader_parameters = {
 "noise1_scale": 0.04,
 "noise2_scale": 0.076,
 "noise3_scale": 0.225,
-"noise_texture": SubResource("NoiseTexture2D_sifxt"),
+"noise_texture": SubResource("NoiseTexture2D_lyonx"),
 "projection_angular_division": 2.0,
 "projection_threshold": 0.8,
 "world_space_normal_blend": true
@@ -49,6 +58,9 @@ _shader_parameters = {
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155731, 0.205719, -0.169888)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wm5ac")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.760406, -0.276522, 0.587638, 0, 0.904827, 0.425779, -0.649448, -0.323765, 0.688036, 17, 12.8919, -6)
@@ -60,7 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.361, 13.1082, -133.453)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://"
-material = SubResource("Terrain3DMaterial_p4qbs")
+material = SubResource("Terrain3DMaterial_iu6mx")
 assets = ExtResource("3_jfx6l")
 top_level = true
-metadata/_edit_lock_ = true

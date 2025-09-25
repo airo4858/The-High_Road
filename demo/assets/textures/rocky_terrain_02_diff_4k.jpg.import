@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yvf3056lnay5"
+uid="uid://clm2gd8lxlqg5"
 path.s3tc="res://.godot/imported/rocky_terrain_02_diff_4k.jpg-8bcf5594bfad14429550873b534787b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -20,7 +20,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=4
