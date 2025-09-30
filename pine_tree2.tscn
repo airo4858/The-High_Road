@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://838ebprb54an"]
+[gd_scene load_steps=3 format=3 uid="uid://838ebprb54an"]
 
 [ext_resource type="Texture2D" uid="uid://v516u5ctqahq" path="res://vecteezy_ai-generated-green-pine-trees-on-a-transparent-background_39659016.png" id="1_1x734"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ssi1j"]
+
+[node name="Node3D" type="CharacterBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.6793, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.679, 0)
 billboard = 2
 texture = ExtResource("1_1x734")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.34286, 0, 0, 0, 4.50678, 0, 0, 0, 0.976868, 0, 4.5, 0)
+shape = SubResource("CylinderShape3D_ssi1j")
