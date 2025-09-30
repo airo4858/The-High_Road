@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=11 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
+[ext_resource type="PackedScene" uid="uid://838ebprb54an" path="res://pine_tree2.tscn" id="3_6ko4u"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
@@ -77,3 +78,10 @@ material = SubResource("Terrain3DMaterial_iu6mx")
 assets = ExtResource("3_jfx6l")
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Tree" parent="Environment" instance=ExtResource("3_6ko4u")]
+
+[node name="Tree2" parent="Environment" instance=ExtResource("3_6ko4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.225, 26.2424, -25.8665)
