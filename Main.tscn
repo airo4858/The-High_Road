@@ -70,7 +70,7 @@ light_energy = 0.921
 shadow_enabled = true
 
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
-transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 221.611, 10.3844, -125.439)
+transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 220.506, 10.9357, -127.339)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://"
