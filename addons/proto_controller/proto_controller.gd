@@ -40,7 +40,7 @@ extends CharacterBody3D
 ## Name of Input Action to Jump.
 @export var input_jump : String = "ui_accept"
 ## Name of Input Action to Sprint.
-@export var input_sprint : String = "sprint"
+@export var input_sprint : String = "ui_select"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
