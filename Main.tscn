@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=13 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
+[ext_resource type="PackedScene" uid="uid://dcp1x04ofbj" path="res://enemy_hiker.tscn" id="2_i7e6j"]
 [ext_resource type="PackedScene" uid="uid://838ebprb54an" path="res://pine_tree2.tscn" id="3_6ko4u"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
 [ext_resource type="PackedScene" uid="uid://bharxvgqbjj38" path="res://flag.tscn" id="4_qsa1g"]
@@ -73,10 +74,15 @@ shadow_enabled = true
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
 transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 220.506, 10.9357, -127.339)
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
+[node name="EnemyHiker1" parent="." instance=ExtResource("2_i7e6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.199, 69.168, -99.1136)
+
+[node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"
 material = SubResource("Terrain3DMaterial_iu6mx")
 assets = ExtResource("3_jfx6l")
+collision_layer = 2
+collision_mask = 5
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -84,6 +90,7 @@ metadata/_edit_lock_ = true
 
 [node name="Tree" parent="Environment" instance=ExtResource("3_6ko4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.025, 0, -186.319)
+collision_mask = 1
 
 [node name="Tree2" parent="Environment" instance=ExtResource("3_6ko4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.225, 26.2424, -25.8665)

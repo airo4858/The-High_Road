@@ -10,11 +10,14 @@ func initialize():
 	chasing_state = get_parent().get_node("Chasing")
 	
 func process_state(delta: float):
-	#print("Idle")
+	print("Idle")
+	
+	body.velocity.y -= -body.get_gravity().y * delta 
 	
 	potential_targets = detect_range.get_overlapping_bodies()
+	#print(potential_targets)
 	
-	if (not potential_targets.is_empty()):
-		chasing_state.target = (potential_targets[0] as CharacterBody2D)
+	if (not potential_targets.is_empty() and potential_targets[0].is_in_group("Player")):
+		chasing_state.target = (potential_targets[0] as CharacterBody3D)
 		change_state.emit(chasing_state, "Chasing")
 		

@@ -4,7 +4,8 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fm87l"]
 
-[node name="Flag" type="CharacterBody3D"]
+[node name="Flag" type="CharacterBody3D" groups=["End_Goal"]]
+collision_layer = 2
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 0, 8.5, 0)

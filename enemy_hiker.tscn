@@ -24,7 +24,9 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aucg2"]
 
-[node name="EnemyHiker" type="CharacterBody3D"]
+[node name="EnemyHiker" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
