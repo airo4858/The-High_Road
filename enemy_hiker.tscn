@@ -72,8 +72,9 @@ shape = SubResource("SphereShape3D_aucg2")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_qp77q")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("2_fetei")
