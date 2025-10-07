@@ -33,4 +33,4 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.934298, -0.356493, 0, 0.356493, 0.934298, 0, 0.251124, 4.47389)
+transform = Transform3D(1, 0, 0, 0, 0.953254, -0.30217, 0, 0.30217, 0.953254, 0, 0.251124, 4.47389)

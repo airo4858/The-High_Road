@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
-[ext_resource type="PackedScene" uid="uid://dcp1x04ofbj" path="res://enemy_hiker.tscn" id="2_i7e6j"]
-[ext_resource type="PackedScene" uid="uid://838ebprb54an" path="res://pine_tree2.tscn" id="3_6ko4u"]
+[ext_resource type="PackedScene" uid="uid://d2mk2a7gtgcb5" path="res://character_scenes/enemy_hiker.tscn" id="2_i7e6j"]
+[ext_resource type="PackedScene" uid="uid://cob4c5pkqrx7f" path="res://character_scenes/pine_tree.tscn" id="3_6ko4u"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
-[ext_resource type="PackedScene" uid="uid://bharxvgqbjj38" path="res://flag.tscn" id="4_qsa1g"]
+[ext_resource type="PackedScene" uid="uid://bk003pqqyi6an" path="res://character_scenes/flag.tscn" id="4_qsa1g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
 

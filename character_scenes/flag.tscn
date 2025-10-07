@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk003pqqyi6an"]
+
+[ext_resource type="Texture2D" uid="uid://bachag0pkqpft" path="res://Environment_Pics/red_flag.png" id="1_xp4np"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fm87l"]
+
+[node name="Flag" type="CharacterBody3D" groups=["End_Goal"]]
+collision_layer = 2
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 0, 8.5, 0)
+layers = 2
+billboard = 2
+texture = ExtResource("1_xp4np")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02298, 0)
+shape = SubResource("CylinderShape3D_fm87l")
