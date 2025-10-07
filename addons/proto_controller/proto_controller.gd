@@ -45,9 +45,11 @@ extends CharacterBody3D
 @export var input_freefly : String = "freefly"
 
 var mouse_captured : bool = false
-var look_rotation : Vector2
+var look_rotation := 0.0
 var move_speed : float = 0.0
 var freeflying : bool = false
+
+@export var turn_speed := 0.75
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -55,8 +57,8 @@ var freeflying : bool = false
 
 func _ready() -> void:
 	check_input_mappings()
-	look_rotation.y = rotation.y
-	look_rotation.x = head.rotation.x
+	look_rotation = rotation.y
+	#look_rotation.x = head.rotation.x
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -66,8 +68,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		release_mouse()
 	
 	# Look around
-	if mouse_captured and event is InputEventMouseMotion:
-		rotate_look(event.relative)
+	#if mouse_captured and event is InputEventMouseMotion:
+		#rotate_look(event.relative)
 	
 	# Toggle freefly mode
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
@@ -117,19 +119,32 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+	rotate_look(delta)
 
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
 ## Modifies look_rotation based on rot_input, then resets basis and rotates by look_rotation.
-func rotate_look(rot_input : Vector2):
-	look_rotation.x -= rot_input.y * look_speed
-	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
-	look_rotation.y -= rot_input.x * look_speed
-	transform.basis = Basis()
-	rotate_y(look_rotation.y)
-	head.transform.basis = Basis()
-	head.rotate_x(look_rotation.x)
+func rotate_look(delta: float):
+	#look_rotation.x -= rot_input.y * look_speed
+	#look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	#look_rotation.y -= rot_input.x * look_speed
+	#transform.basis = Basis()
+	#rotate_y(look_rotation.y)
+	#head.transform.basis = Basis()
+	#head.rotate_x(look_rotation.x)
+	var input_dir := 0.0
+
+	if Input.is_action_pressed("look_right"):  # e.g. "a"
+		input_dir = -1.0
+	elif Input.is_action_pressed("look_left"):  # e.g. "d"
+		input_dir = 1.0
+
+	if input_dir != 0.0:
+		# Apply rotation only when a key is pressed
+		look_rotation += input_dir * turn_speed * delta
+		look_rotation = wrapf(look_rotation, -PI, PI)
+		transform.basis = Basis(Vector3.UP, look_rotation)
 
 
 func enable_freefly():

@@ -35,8 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_n48k1")
 mesh = SubResource("CapsuleMesh_r3dgs")
 
-[node name="Animation" type="AnimationPlayer" parent="."]
-
 [node name="Arms" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.88964, 0.456663, 0, -0.456663, 0.88964, 0, 1, 0)
 
@@ -69,6 +67,8 @@ shape = SubResource("SphereShape3D_uql63")
 [node name="AttackRange" type="CollisionShape3D" parent="Attack"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1, 0)
 shape = SubResource("SphereShape3D_aucg2")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("1_qp77q")

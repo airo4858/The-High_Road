@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=12 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="PackedScene" uid="uid://838ebprb54an" path="res://pine_tree2.tscn" id="3_6ko4u"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
+[ext_resource type="PackedScene" uid="uid://bharxvgqbjj38" path="res://flag.tscn" id="4_qsa1g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
 
@@ -1400,3 +1401,6 @@ transform = Transform3D(-0.183917, 0, -0.982942, 0, 1, 0, 0.982942, 0, -0.183917
 
 [node name="Tree440" parent="Environment" instance=ExtResource("3_6ko4u")]
 transform = Transform3D(-0.183917, 0, -0.982942, 0, 1, 0, 0.982942, 0, -0.183917, -147.53, -0.0679703, 243.496)
+
+[node name="Flag" parent="." instance=ExtResource("4_qsa1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.644, 243.595, 10.0655)

@@ -8,6 +8,7 @@
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.679, -0.157747)
+layers = 2
 billboard = 2
 texture = ExtResource("1_1x734")
 
