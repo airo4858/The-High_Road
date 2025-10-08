@@ -13,6 +13,7 @@ func process_state(delta: float):
 	print("Idle")
 	
 	body.velocity.y -= -body.get_gravity().y * delta 
+	body.move_and_slide()
 	
 	potential_targets = detect_range.get_overlapping_bodies()
 	#print(potential_targets)

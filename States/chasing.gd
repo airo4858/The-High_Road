@@ -18,7 +18,7 @@ func initialize():
 	idle_state = get_parent().get_node("Idle")
 	target = get_parent().get_parent().get_parent().get_node("ProtoController")
 
-func _physics_process(delta: float):
+func process_state(delta: float):
 	#body.velocity = (target.position - body.position).normalized() * chase_speed
 	#body.get_gravity() * delta
 	var direction = (target.transform.origin - body.transform.origin).normalized()
