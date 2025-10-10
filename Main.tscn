@@ -75,7 +75,7 @@ shadow_enabled = true
 transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 220.506, 10.9357, -127.339)
 
 [node name="EnemyHiker1" parent="." instance=ExtResource("2_i7e6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.199, 69.168, -99.1136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.829, 65.3705, -93.0355)
 
 [node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"

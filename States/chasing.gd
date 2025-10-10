@@ -16,7 +16,7 @@ func initialize():
 	attack = body.get_node("Attack")
 	attacking_state = get_parent().get_node("Attacking")
 	idle_state = get_parent().get_node("Idle")
-	target = get_parent().get_parent().get_parent().get_node("ProtoController")
+	#target = get_parent().get_parent().get_parent().get_node("ProtoController")
 
 func process_state(delta: float):
 	#body.velocity = (target.position - body.position).normalized() * chase_speed
@@ -42,3 +42,4 @@ func process_state(delta: float):
 	
 	if (not enter_attack.is_empty()):
 		change_state.emit(attacking_state, "Attacking")
+		attacking_state.target = get_parent().get_parent().get_parent().get_node("ProtoController")

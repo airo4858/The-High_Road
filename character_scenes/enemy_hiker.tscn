@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2mk2a7gtgcb5"]
+[gd_scene load_steps=18 format=3 uid="uid://d2mk2a7gtgcb5"]
 
 [ext_resource type="Script" path="res://States/state_machine.gd" id="1_qp77q"]
 [ext_resource type="Script" path="res://States/idle.gd" id="2_fetei"]
@@ -24,8 +24,123 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aucg2"]
 
+[sub_resource type="Animation" id="Animation_eedv8"]
+resource_name = "right_arm_punch"
+length = 3.0
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 1.95833, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.833333, 1.95833),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.474241, 0, 0), Vector3(-1.74533, 0, 0), Vector3(-0.47473, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ssaug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.474241, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5v0i"]
+resource_name = "left_arm_punch"
+length = 3.0
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArm:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 1.95833, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.833333, 1.95833),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0), Vector3(-1.74533, 0, 0), Vector3(-0.47473, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vntm6"]
+_data = {
+"RESET": SubResource("Animation_ssaug"),
+"left_arm_punch": SubResource("Animation_i5v0i"),
+"right_arm_punch": SubResource("Animation_eedv8")
+}
+
 [node name="EnemyHiker" type="CharacterBody3D" groups=["Enemy"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 4
 collision_mask = 3
 
@@ -38,40 +153,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_n48k1")
 mesh = SubResource("CapsuleMesh_r3dgs")
 
-[node name="Arms" type="Area3D" parent="."]
+[node name="RightArm" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.88964, 0.456663, 0, -0.456663, 0.88964, 0, 1, 0)
+collision_layer = 4
 
-[node name="RightArmCollision" type="CollisionShape3D" parent="Arms"]
+[node name="RightArmCollision" type="CollisionShape3D" parent="RightArm"]
 transform = Transform3D(0.75, 0, 0, 0, -0.729032, -0.176102, 0, 0.176102, -0.729032, -0.708, -0.5, 0.262)
 shape = SubResource("CapsuleShape3D_oamyr")
 
-[node name="RightArmMesh" type="MeshInstance3D" parent="Arms"]
+[node name="RightArmMesh" type="MeshInstance3D" parent="RightArm"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.708, -0.5, 0.262)
 material_override = SubResource("StandardMaterial3D_r0bef")
 mesh = SubResource("CapsuleMesh_n0yqx")
 
-[node name="LeftArmCollision" type="CollisionShape3D" parent="Arms"]
-transform = Transform3D(0.75, 0, 0, 0, -0.729032, -0.176102, 0, 0.176102, -0.729032, 0.63, -0.5, 0.262)
+[node name="LeftArm" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.889416, 0.457098, 0, -0.457098, 0.889416, 0, 1, 0)
+
+[node name="LeftArmCollision" type="CollisionShape3D" parent="LeftArm"]
+transform = Transform3D(0.75, -6.55671e-08, 6.55671e-08, -6.55671e-08, -0.75, 0, 6.55671e-08, -5.73206e-15, -0.75, 0.708, -0.5, 0.262)
 shape = SubResource("CapsuleShape3D_oamyr")
 
-[node name="LeftArmMesh" type="MeshInstance3D" parent="Arms"]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.63, -0.5, 0.262)
+[node name="LeftArmMesh" type="MeshInstance3D" parent="LeftArm"]
+transform = Transform3D(0.75, 3.90799e-14, -7.4607e-14, 0, 0.750001, 5.96046e-08, -3.55271e-15, -5.96046e-08, 0.750001, 0.708, -0.5, 0.262)
 material_override = SubResource("StandardMaterial3D_r0bef")
 mesh = SubResource("CapsuleMesh_n0yqx")
+skeleton = NodePath("../../RightArm")
 
 [node name="Detection" type="Area3D" parent="."]
+collision_layer = 4
 
 [node name="DetectionRange" type="CollisionShape3D" parent="Detection"]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
 shape = SubResource("SphereShape3D_uql63")
 
 [node name="Attack" type="Area3D" parent="."]
+collision_layer = 4
 
 [node name="AttackRange" type="CollisionShape3D" parent="Attack"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0)
 shape = SubResource("SphereShape3D_aucg2")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vntm6")
+}
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_qp77q")
