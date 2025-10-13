@@ -32,6 +32,7 @@ func process_state(delta: float):
 	body.move_and_slide()
 	
 	body.look_at(target.global_transform.origin, Vector3.UP)
+	body.rotate_y(deg_to_rad(180))
 	
 	print("Chasing")
 	leave_detection = detection.get_overlapping_bodies()

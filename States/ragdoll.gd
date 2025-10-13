@@ -1,11 +1,11 @@
 extends State
 class_name Ragdoll
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var attack_state: State
 
+func initialize():
+	attack_state = get_parent().get_node("Attacking")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func process_state(delta: float):
+	print("Ragdoll")
+	

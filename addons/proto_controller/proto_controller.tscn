@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" path="res://addons/proto_controller/proto_controller.gd" id="1_hpbhc"]
 
@@ -13,6 +13,20 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8bw3f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i43c"]
+albedo_color = Color(1, 0.583333, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2w241"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pltpd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbpok"]
+albedo_color = Color(1, 0.55, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ibtn7"]
+
 [node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_hpbhc")
@@ -20,17 +34,43 @@ can_jump = false
 can_sprint = true
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="RightArm" type="Area3D" parent="."]
+transform = Transform3D(-1, 3.99227e-08, -7.77748e-08, 0, 0.88964, 0.456663, 8.74228e-08, 0.456663, -0.88964, 0, 1, 0)
+collision_layer = 4
+
+[node name="RightArmCollision" type="CollisionShape3D" parent="RightArm"]
+transform = Transform3D(-0.75, -1.53953e-08, 6.3734e-08, 0, -0.729032, -0.176102, 6.55671e-08, -0.176102, 0.729032, -0.708, -0.5, 0.262)
+shape = SubResource("CapsuleShape3D_8bw3f")
+
+[node name="RightArmMesh" type="MeshInstance3D" parent="RightArm"]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -0.708, -0.5, 0.262)
+material_override = SubResource("StandardMaterial3D_1i43c")
+mesh = SubResource("CapsuleMesh_2w241")
+
+[node name="LeftArm" type="Area3D" parent="."]
+transform = Transform3D(-1, 3.99608e-08, -7.77552e-08, 0, 0.889416, 0.457098, 8.74228e-08, 0.457098, -0.889416, 0, 1, 0)
+
+[node name="LeftArmCollision" type="CollisionShape3D" parent="LeftArm"]
+transform = Transform3D(0.75, -1.13247e-07, -6.55671e-08, -1.13247e-07, -0.75, 8.47033e-22, -6.55671e-08, 9.90035e-15, -0.75, 0.708, -0.5, 0.262)
+shape = SubResource("CapsuleShape3D_pltpd")
+
+[node name="LeftArmMesh" type="MeshInstance3D" parent="LeftArm"]
+transform = Transform3D(-0.75, 5.2108e-15, -6.55672e-08, 1.05879e-22, 0.750001, 5.96046e-08, 6.55671e-08, 5.96046e-08, -0.750001, 0.708, -0.5, 0.262)
+material_override = SubResource("StandardMaterial3D_sbpok")
+mesh = SubResource("CapsuleMesh_ibtn7")
+skeleton = NodePath("../../RightArm")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.953254, -0.30217, 0, 0.30217, 0.953254, 0, 0.251124, 4.47389)
+transform = Transform3D(1, 0, 0, 0, 0.963626, -0.267255, 0, 0.267255, 0.963626, 0, 0.223502, 4.47389)

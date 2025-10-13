@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=14 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="PackedScene" uid="uid://d2mk2a7gtgcb5" path="res://character_scenes/enemy_hiker.tscn" id="2_i7e6j"]
@@ -60,6 +60,8 @@ _shader_parameters = {
 }
 world_background = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p5nep"]
+
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155731, 0.205719, -0.169888)
 
@@ -74,8 +76,10 @@ shadow_enabled = true
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
 transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 220.506, 10.9357, -127.339)
 
-[node name="EnemyHiker1" parent="." instance=ExtResource("2_i7e6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.829, 65.3705, -93.0355)
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="EnemyHiker1" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(-0.592168, 0, 0.805815, 0, 1, 0, -0.805815, 0, -0.592168, 197.946, 16.4289, -106.969)
 
 [node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"
@@ -1411,3 +1415,10 @@ transform = Transform3D(-0.183917, 0, -0.982942, 0, 1, 0, 0.982942, 0, -0.183917
 
 [node name="Flag" parent="." instance=ExtResource("4_qsa1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.644, 243.595, 10.0655)
+
+[node name="DeathBox" type="Area3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathBox"]
+transform = Transform3D(800, 0, 0, 0, 50, 0, 0, 0, 600, 132.885, -20, 0)
+shape = SubResource("BoxShape3D_p5nep")

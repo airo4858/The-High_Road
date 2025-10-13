@@ -20,7 +20,7 @@ extends CharacterBody3D
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 7.0
+@export var base_speed : float = 5.5
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -136,9 +136,9 @@ func rotate_look(delta: float):
 	var input_dir := 0.0
 
 	if Input.is_action_pressed("look_right"):  # e.g. "a"
-		input_dir = -1.0
+		input_dir = -0.8
 	elif Input.is_action_pressed("look_left"):  # e.g. "d"
-		input_dir = 1.0
+		input_dir = 0.8
 
 	if input_dir != 0.0:
 		# Apply rotation only when a key is pressed
