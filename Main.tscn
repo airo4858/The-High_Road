@@ -74,7 +74,7 @@ light_energy = 0.921
 shadow_enabled = true
 
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
-transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 220.506, 10.9357, -127.339)
+transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337, 216.017, 10.9357, -131.266)
 
 [node name="Enemies" type="Node3D" parent="."]
 

@@ -5,6 +5,8 @@
 
 extends CharacterBody3D
 
+#var serial: GdSerial
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -20,7 +22,7 @@ extends CharacterBody3D
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 5.5
+@export var base_speed : float = 6.0
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -59,6 +61,10 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation = rotation.y
 	#look_rotation.x = head.rotation.x
+	#serial = GdSerial.new()
+	#serial.get_port("COM3")
+	#serial.set_baud_rate(9600)
+	#serial.set_timeout(1000)
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -120,6 +126,8 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	rotate_look(delta)
+	move_right_arm()
+	move_left_arm()
 
 
 ## Rotate us to look around.
@@ -146,6 +154,15 @@ func rotate_look(delta: float):
 		look_rotation = wrapf(look_rotation, -PI, PI)
 		transform.basis = Basis(Vector3.UP, look_rotation)
 
+func move_left_arm():
+	#serial.writeline("GET_SENSOR")
+	#var response = serial.readline()
+	#print(response)
+
+func move_right_arm():
+	#serial.writeline("GET_SENSOR")
+	#var response = serial.readline()
+	#print(response)
 
 func enable_freefly():
 	collider.disabled = true

@@ -34,7 +34,7 @@ func process_state(delta: float):
 	body.look_at(target.global_transform.origin, Vector3.UP)
 	body.rotate_y(deg_to_rad(180))
 	
-	print("Chasing")
+	#print("Chasing")
 	leave_detection = detection.get_overlapping_bodies()
 	enter_attack = attack.get_overlapping_bodies()
 	
@@ -43,4 +43,4 @@ func process_state(delta: float):
 	
 	if (not enter_attack.is_empty()):
 		change_state.emit(attacking_state, "Attacking")
-		attacking_state.target = get_parent().get_parent().get_parent().get_node("ProtoController")
+		attacking_state.target = get_parent().get_parent().get_parent().get_parent().get_node("ProtoController")

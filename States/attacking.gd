@@ -15,7 +15,7 @@ func initialize():
 	right_punch = false
 	
 func process_state(delta: float):
-	print("Attacking")
+	#print("Attacking")
 	body.move_and_slide()
 	body.look_at(target.global_transform.origin, Vector3.UP)
 	body.rotate_y(deg_to_rad(180))
