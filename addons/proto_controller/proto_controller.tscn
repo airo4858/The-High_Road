@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" path="res://addons/proto_controller/proto_controller.gd" id="1_hpbhc"]
-[ext_resource type="Script" path="res://addons/proto_controller/Arduino.cs" id="2_mrvjo"]
+[ext_resource type="Script" path="res://addons/proto_controller/Arduino.cs" id="2_xhkah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -31,24 +31,8 @@ albedo_color = Color(1, 0.55, 0, 1)
 [node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_hpbhc")
-can_move = null
-has_gravity = null
 can_jump = false
 can_sprint = true
-can_freefly = null
-look_speed = null
-base_speed = null
-jump_velocity = null
-sprint_speed = null
-freefly_speed = null
-input_left = null
-input_right = null
-input_forward = null
-input_back = null
-input_jump = null
-input_sprint = null
-input_freefly = null
-turn_speed = null
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9, 0)
@@ -93,4 +77,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 transform = Transform3D(1, 0, 0, 0, 0.966868, -0.255277, 0, 0.255277, 0.966868, 0, 0.223502, 4.72355)
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource("2_mrvjo")
+script = ExtResource("2_xhkah")

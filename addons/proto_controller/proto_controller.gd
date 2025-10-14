@@ -6,6 +6,7 @@
 extends CharacterBody3D
 
 #var serial: GdSerial
+var input_dir := 0.0
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -126,8 +127,8 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	rotate_look(delta)
-	move_right_arm()
-	move_left_arm()
+	#move_right_arm()
+	#move_left_arm()
 
 
 ## Rotate us to look around.
@@ -141,12 +142,11 @@ func rotate_look(delta: float):
 	#rotate_y(look_rotation.y)
 	#head.transform.basis = Basis()
 	#head.rotate_x(look_rotation.x)
-	var input_dir := 0.0
 
-	if Input.is_action_pressed("look_right"):  # e.g. "a"
-		input_dir = -0.8
-	elif Input.is_action_pressed("look_left"):  # e.g. "d"
-		input_dir = 0.8
+	#if Input.is_action_pressed("look_right"):  # e.g. "a"
+		#input_dir = -0.8
+	#elif Input.is_action_pressed("look_left"):  # e.g. "d"
+		#input_dir = 0.8
 
 	if input_dir != 0.0:
 		# Apply rotation only when a key is pressed
@@ -154,12 +154,15 @@ func rotate_look(delta: float):
 		look_rotation = wrapf(look_rotation, -PI, PI)
 		transform.basis = Basis(Vector3.UP, look_rotation)
 
-func move_left_arm():
+func set_input_direction(dir: float) -> void:
+	input_dir = dir
+	
+#func move_left_arm():
 	#serial.writeline("GET_SENSOR")
 	#var response = serial.readline()
 	#print(response)
-
-func move_right_arm():
+#
+#func move_right_arm():
 	#serial.writeline("GET_SENSOR")
 	#var response = serial.readline()
 	#print(response)
