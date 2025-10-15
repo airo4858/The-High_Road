@@ -28,9 +28,10 @@ albedo_color = Color(1, 0.55, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ibtn7"]
 
-[node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
+[node name="ProtoController" type="CharacterBody3D" node_paths=PackedStringArray("arduino") groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_hpbhc")
+arduino = NodePath("Arduino")
 can_jump = false
 can_sprint = true
 
@@ -76,5 +77,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.966868, -0.255277, 0, 0.255277, 0.966868, 0, 0.223502, 4.72355)
 
-[node name="Node" type="Node" parent="."]
+[node name="Arduino" type="Node" parent="."]
 script = ExtResource("2_xhkah")
