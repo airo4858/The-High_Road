@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 #var serial: GdSerial
 var input_dir : float = 0.0
-var arduino_input : float = 0.0
+var arduino_input : int = 0
 @export var arduino : Node
 
 ## Can we move around?
@@ -149,13 +149,13 @@ func rotate_look(delta: float):
 		#input_dir = -0.8
 	#elif Input.is_action_pressed("look_left"):  # e.g. "d"
 		#input_dir = 0.8
-	arduino_input = arduino.camera_control()
-	if (arduino_input >= 600):
-		input_dir = 0.8
-	if (arduino_input <= 424):
-		input_dir = -0.8
-	else:
-		input_dir = 0.0
+	#arduino_input = arduino.camera_control();
+	#if (arduino_input >= 600):
+		#input_dir = 0.8
+	#if (arduino_input <= 424):
+		#input_dir = -0.8
+	#else:
+		#input_dir = 0.0
 		
 	if input_dir != 0.0:
 		# Apply rotation only when a key is pressed
@@ -163,8 +163,8 @@ func rotate_look(delta: float):
 		look_rotation = wrapf(look_rotation, -PI, PI)
 		transform.basis = Basis(Vector3.UP, look_rotation)
 
-#func set_input_direction(dir: float) -> void:
-	#input_dir = dir
+func set_input_direction(dir: float):
+	input_dir = dir
 	
 #func move_left_arm():
 	#serial.writeline("GET_SENSOR")
