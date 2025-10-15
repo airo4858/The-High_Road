@@ -6,9 +6,11 @@ public partial class Arduino : Node
 {
 	SerialPort serialPort;
 	
-	Node LeftArm;
-	Node RightArm;
-	Node controller;
+	//[Export] CharacterBody3D ProtoController;
+	
+	//Node LeftArm;
+	//Node RightArm;
+	//Node controller;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
