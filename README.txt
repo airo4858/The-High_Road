@@ -17,6 +17,8 @@ controlled by A and D. Punching mechanics not yet set up.
 
 The current Arduino code is set up so that there are 3 potentiometers set up on the Analog options
 A0, A1, and A2, with camera movement being connected to A2, and the arms will be connected to 
-A0 and A1. The Arduino code is available to download in the game files. It's also important to
-download the System.IO.Ports from dotnet through the Godot console,
+A0 and A1. Stopping your character using a button will be connected to the digital pin 2.The 
+Arduino code is available to download in the game files. It's also important to download the 
+System.IO.Ports from dotnet through the Godot console;
 dotnet add package System.IO.Ports --version 7.0.0
+Use the folder "mannequin_test_2" to use the button pause functionality.
