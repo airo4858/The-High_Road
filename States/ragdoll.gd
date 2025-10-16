@@ -1,11 +1,11 @@
 extends State
 class_name Ragdoll
 
-var attack_state: State
+var ragdoll_state : State
 
 func initialize():
-	attack_state = get_parent().get_node("Attacking")
+	ragdoll_state = get_parent().get_node("Ragdoll")
 
 func process_state(delta: float):
 	print("Ragdoll")
-	
+	body.visible = false

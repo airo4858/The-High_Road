@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2mk2a7gtgcb5"]
+[gd_scene load_steps=19 format=3 uid="uid://d2mk2a7gtgcb5"]
 
+[ext_resource type="Script" path="res://character_scenes/enemy_hiker.gd" id="1_40vuq"]
 [ext_resource type="Script" path="res://States/state_machine.gd" id="1_qp77q"]
 [ext_resource type="Script" path="res://States/idle.gd" id="2_fetei"]
 [ext_resource type="Script" path="res://States/chasing.gd" id="3_yqvhn"]
@@ -143,6 +144,7 @@ _data = {
 [node name="EnemyHiker" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 3
+script = ExtResource("1_40vuq")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
@@ -213,3 +215,6 @@ script = ExtResource("4_3ebab")
 
 [node name="Ragdoll" type="Node" parent="StateMachine"]
 script = ExtResource("5_2wub7")
+
+[connection signal="body_entered" from="RightArm" to="." method="_on_right_arm_body_entered"]
+[connection signal="body_entered" from="LeftArm" to="." method="_on_left_arm_body_entered"]

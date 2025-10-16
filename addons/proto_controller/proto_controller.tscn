@@ -78,3 +78,6 @@ transform = Transform3D(1, 0, 0, 0, 0.966868, -0.255277, 0, 0.255277, 0.966868, 
 
 [node name="Arduino" type="Node" parent="."]
 script = ExtResource("2_xhkah")
+
+[connection signal="body_entered" from="RightArm" to="." method="_on_right_arm_body_entered"]
+[connection signal="body_entered" from="LeftArm" to="." method="_on_left_arm_body_entered"]

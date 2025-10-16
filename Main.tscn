@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=16 format=3 uid="uid://ckfltsmo3mlsc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="PackedScene" uid="uid://d2mk2a7gtgcb5" path="res://character_scenes/enemy_hiker.tscn" id="2_i7e6j"]
 [ext_resource type="PackedScene" uid="uid://cob4c5pkqrx7f" path="res://character_scenes/pine_tree.tscn" id="3_6ko4u"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="3_jfx6l"]
 [ext_resource type="PackedScene" uid="uid://bk003pqqyi6an" path="res://character_scenes/flag.tscn" id="4_qsa1g"]
+[ext_resource type="PackedScene" uid="uid://deaqtkif8sdpp" path="res://ui.tscn" id="6_ydhtl"]
+[ext_resource type="Script" path="res://ui.gd" id="7_7j8if"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
 
@@ -1422,3 +1424,6 @@ collision_layer = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathBox"]
 transform = Transform3D(800, 0, 0, 0, 50, 0, 0, 0, 600, 132.885, -20, 0)
 shape = SubResource("BoxShape3D_p5nep")
+
+[node name="UI" parent="." instance=ExtResource("6_ydhtl")]
+script = ExtResource("7_7j8if")
