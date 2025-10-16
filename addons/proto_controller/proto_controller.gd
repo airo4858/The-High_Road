@@ -7,8 +7,10 @@ extends CharacterBody3D
 
 #var serial: GdSerial
 var input_dir : float = 0.0
-var arduino_input : int = 0
-@export var arduino : Node
+var left_arm_rotate : float
+var right_arm_rotate : float
+var right_arm : Area3D
+var left_arm : Area3D
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -64,10 +66,8 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation = rotation.y
 	#look_rotation.x = head.rotation.x
-	#serial = GdSerial.new()
-	#serial.get_port("COM3")
-	#serial.set_baud_rate(9600)
-	#serial.set_timeout(1000)
+	right_arm = get_node("RightArm")
+	left_arm = get_node("LeftArm")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -129,8 +129,8 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	rotate_look(delta)
-	#move_right_arm()
-	#move_left_arm()
+	move_right_arm()
+	move_left_arm()
 
 
 ## Rotate us to look around.
@@ -166,15 +166,17 @@ func rotate_look(delta: float):
 func set_input_direction(dir: float):
 	input_dir = dir
 	
-#func move_left_arm():
-	#serial.writeline("GET_SENSOR")
-	#var response = serial.readline()
-	#print(response)
-#
-#func move_right_arm():
-	#serial.writeline("GET_SENSOR")
-	#var response = serial.readline()
-	#print(response)
+func move_left_arm():
+	left_arm.rotation_degrees.x = left_arm_rotate
+	
+func set_left_arm_rotation(rotate: float):
+	left_arm_rotate = rotate
+
+func move_right_arm():
+	right_arm.rotation_degrees.x = right_arm_rotate
+	
+func set_right_arm_rotation(rotate: float):
+	right_arm_rotate = rotate
 
 func enable_freefly():
 	collider.disabled = true

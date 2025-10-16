@@ -28,10 +28,9 @@ albedo_color = Color(1, 0.55, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ibtn7"]
 
-[node name="ProtoController" type="CharacterBody3D" node_paths=PackedStringArray("arduino") groups=["Player"]]
+[node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_hpbhc")
-arduino = NodePath("Arduino")
 can_jump = false
 can_sprint = true
 
@@ -59,7 +58,7 @@ material_override = SubResource("StandardMaterial3D_1i43c")
 mesh = SubResource("CapsuleMesh_2w241")
 
 [node name="LeftArm" type="Area3D" parent="."]
-transform = Transform3D(-1, 3.99608e-08, -7.77552e-08, 0, 0.889416, 0.457098, 8.74228e-08, 0.457098, -0.889416, 0, 1, 0)
+transform = Transform3D(-1, 6.90199e-08, -1.34298e-07, 0, 0.889416, 0.457098, 1.50996e-07, 0.457098, -0.889416, 0, 1, 0)
 
 [node name="LeftArmCollision" type="CollisionShape3D" parent="LeftArm"]
 transform = Transform3D(0.75, -1.13247e-07, -6.55671e-08, -1.13247e-07, -0.75, 8.47033e-22, -6.55671e-08, 9.90035e-15, -0.75, 0.575, -0.5, 0.262)
