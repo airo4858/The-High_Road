@@ -12,6 +12,9 @@ var right_arm_rotate : float
 var right_arm : Area3D
 var left_arm : Area3D
 var ragdoll_timer : float = 1.0
+var death_box : Area3D
+var death_box_checker : Array
+var ui : CanvasLayer
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -69,6 +72,8 @@ func _ready() -> void:
 	#look_rotation.x = head.rotation.x
 	right_arm = get_node("RightArm")
 	left_arm = get_node("LeftArm")
+	death_box = get_node("/root/Main/DeathBox")
+	ui = get_node("/root/Main/UI")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -132,6 +137,7 @@ func _physics_process(delta: float) -> void:
 	rotate_look(delta)
 	move_right_arm()
 	move_left_arm()
+	enter_death_box()
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
@@ -250,3 +256,11 @@ func player_hit():
 
 #func player_ragdoll():
 	
+
+func enter_death_box():
+	death_box_checker = death_box.get_overlapping_bodies()
+	if (not death_box_checker.is_empty()):
+		Input.action_press("ui_up")
+		print("Deathbox")
+		#player goes into ragdoll permenantly
+		ui.visible = true

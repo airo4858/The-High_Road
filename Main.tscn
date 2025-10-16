@@ -1426,4 +1426,5 @@ transform = Transform3D(800, 0, 0, 0, 50, 0, 0, 0, 600, 132.885, -20, 0)
 shape = SubResource("BoxShape3D_p5nep")
 
 [node name="UI" parent="." instance=ExtResource("6_ydhtl")]
+visible = false
 script = ExtResource("7_7j8if")
