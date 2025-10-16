@@ -178,6 +178,12 @@ func move_right_arm():
 func set_right_arm_rotation(rotate: float):
 	right_arm_rotate = rotate
 
+func move_player(button: int):
+	if button == 0:
+		Input.action_press("ui_up")
+	else:
+		Input.action_release("ui_up")
+
 func enable_freefly():
 	collider.disabled = true
 	freeflying = true

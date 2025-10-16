@@ -54,5 +54,8 @@ public partial class Arduino : Node
 		float rightSensor = (float)Sensor0;
 		float right_degrees = -0.07109375f * rightSensor - 27.2f;
 		controller.Call("set_right_arm_rotation", right_degrees);
+		
+		//Button Movement
+		controller.Call("move_player", SensorButton);
 	}
 }
