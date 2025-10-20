@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckfltsmo3mlsc"]
+[gd_scene load_steps=16 format=3 uid="uid://b3w7m75ej5m13"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="PackedScene" uid="uid://d2mk2a7gtgcb5" path="res://character_scenes/enemy_hiker.tscn" id="2_i7e6j"]

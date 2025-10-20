@@ -174,7 +174,7 @@ func set_input_direction(dir: float):
 	
 func move_left_arm():
 	left_arm.rotation_degrees.x = left_arm_rotate
-	if left_arm.rotation_degrees.x == -27.2:
+	if left_arm.rotation_degrees.x <= -30.0:
 		left_arm.monitoring = false
 	else:
 		left_arm.monitoring = true
@@ -184,7 +184,7 @@ func set_left_arm_rotation(rotate: float):
 
 func move_right_arm():
 	right_arm.rotation_degrees.x = right_arm_rotate
-	if right_arm.rotation_degrees.x == -27.2:
+	if right_arm.rotation_degrees.x <= -30.0:
 		right_arm.monitoring = false
 	else:
 		right_arm.monitoring = true
@@ -243,10 +243,12 @@ func check_input_mappings():
 
 func _on_left_arm_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
+		print("Left Arm Hit")
 		body.hit()
 
 func _on_right_arm_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
+		print("Right Arm Hit")
 		body.hit()
 
 func player_hit():
