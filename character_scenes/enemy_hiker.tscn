@@ -17,10 +17,8 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oamyr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0bef"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_n0yqx"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4xha"]
+height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uql63"]
 
@@ -1161,6 +1159,18 @@ tracks/39/path = NodePath("Rig/Skeleton3D:end")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, 0.0011049, 0.0957115, 0.0135487, 0.995316)
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../../LeftArm:rotation")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 0.866667, 1.26667, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0), Vector3(0.296706, 0, 0), Vector3(-1.29154, 0, 0), Vector3(-0.47473, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_f36ik"]
 resource_name = "punch_R"
@@ -1445,6 +1455,18 @@ tracks/39/path = NodePath("Rig/Skeleton3D:end")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, 0.0011049, 0.0957115, 0.0135487, 0.995316)
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../../RightArm:rotation")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1.26667, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0), Vector3(0.174533, 0, 0), Vector3(-1.28282, 0, 0), Vector3(-0.47473, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_r4q63"]
 resource_name = "still"
@@ -2015,9 +2037,37 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, 0.0011049, 0.0957115, 0.0135487, 0.995316)
 
+[sub_resource type="Animation" id="Animation_c66te"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../LeftArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.47473, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6c57"]
 _data = {
 "Non-OverlappingAction": SubResource("Animation_87txq"),
+"RESET": SubResource("Animation_c66te"),
 "Still": SubResource("Animation_bshl0"),
 "bounce": SubResource("Animation_3xp5q"),
 "punch_L": SubResource("Animation_vyrqi"),
@@ -2042,35 +2092,30 @@ material_override = SubResource("StandardMaterial3D_n48k1")
 mesh = SubResource("CapsuleMesh_r3dgs")
 
 [node name="RightArm" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.88964, 0.456663, 0, -0.456663, 0.88964, 0, 1, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.889417, 0.457098, 0, -0.457098, 0.889417, 0, 1.481, 0)
 collision_layer = 4
 monitoring = false
 
 [node name="RightArmCollision" type="CollisionShape3D" parent="RightArm"]
-transform = Transform3D(-0.75, -1.53953e-08, 6.3734e-08, 0, -0.729032, -0.176102, 6.55671e-08, -0.176102, 0.729032, -0.575, -0.5, 0.262)
+transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011, -0.0587007, 1.29921e-08, -0.0587007, 0.243011, -0.21415, -0.261541, -0.0246505)
 shape = SubResource("CapsuleShape3D_oamyr")
 
-[node name="RightArmMesh" type="MeshInstance3D" parent="RightArm"]
-transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -0.575, -0.5, 0.262)
-material_override = SubResource("StandardMaterial3D_r0bef")
-mesh = SubResource("CapsuleMesh_n0yqx")
+[node name="RightArmCollision2" type="CollisionShape3D" parent="RightArm"]
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, -0.255, -0.4, 0.048)
+shape = SubResource("CapsuleShape3D_f4xha")
 
 [node name="LeftArm" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.889416, 0.457098, 0, -0.457098, 0.889416, 0, 1, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.889416, 0.457098, 0, -0.457098, 0.889416, 0, 1.481, 0)
 collision_layer = 4
 monitoring = false
 
 [node name="LeftArmCollision" type="CollisionShape3D" parent="LeftArm"]
-transform = Transform3D(0.75, -1.13247e-07, -6.55671e-08, -1.13247e-07, -0.75, 8.47033e-22, -6.55671e-08, 9.90035e-15, -0.75, 0.575, -0.5, 0.262)
+transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011, -0.0587007, 1.29921e-08, -0.0587007, 0.243011, 0.214164, -0.26154, -0.0246505)
 shape = SubResource("CapsuleShape3D_oamyr")
 
-[node name="LeftArmMesh" type="MeshInstance3D" parent="LeftArm"]
-transform = Transform3D(-0.75, 5.2108e-15, -6.55672e-08, 0, 0.750001, 5.96046e-08, 6.55671e-08, 5.96046e-08, -0.750001, 0.575, -0.5, 0.262)
-material_override = SubResource("StandardMaterial3D_r0bef")
-mesh = SubResource("CapsuleMesh_n0yqx")
-skeleton = NodePath("../../RightArm")
+[node name="LeftArmCollision2" type="CollisionShape3D" parent="LeftArm"]
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, 0.255, -0.4, 0.091)
+shape = SubResource("CapsuleShape3D_f4xha")
 
 [node name="Detection" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)

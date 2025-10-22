@@ -15,6 +15,7 @@ var ragdoll_timer : float = 1.0
 var death_box : Area3D
 var death_box_checker : Array
 var ui : CanvasLayer
+var animation : AnimationPlayer
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -74,6 +75,7 @@ func _ready() -> void:
 	left_arm = get_node("LeftArm")
 	death_box = get_node("/root/Main/DeathBox")
 	ui = get_node("/root/Main/UI")
+	animation = get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -194,8 +196,10 @@ func set_right_arm_rotation(rotate: float):
 
 func move_player(button: int):
 	if button == 0:
+		animation.play("walk")
 		Input.action_press("ui_up")
 	else:
+		animation.play("still")
 		Input.action_release("ui_up")
 
 func enable_freefly():
