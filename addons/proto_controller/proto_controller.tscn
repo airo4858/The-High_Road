@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" path="res://addons/proto_controller/proto_controller.gd" id="1_hpbhc"]
 [ext_resource type="Script" path="res://addons/proto_controller/Arduino.cs" id="2_xhkah"]
@@ -12,22 +12,18 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
+radius = 0.3
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8bw3f"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vwtpd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i43c"]
-albedo_color = Color(1, 0.583333, 0, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ml87"]
+height = 3.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2w241"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j07y6"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pltpd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbpok"]
-albedo_color = Color(1, 0.55, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ibtn7"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjcme"]
+height = 3.0
 
 [node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 6
@@ -43,37 +39,34 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.9, 0)
+transform = Transform3D(-0.9, 0, -1.35896e-07, 0, 0.9, 0, 1.35896e-07, 0, -0.9, 0, 0.852759, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="RightArm" type="Area3D" parent="."]
-transform = Transform3D(-1, 6.89542e-08, -1.34332e-07, 0, 0.88964, 0.456663, 1.50996e-07, 0.456663, -0.88964, 0, 1, 0)
-visible = false
+transform = Transform3D(-1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, -0.000799, 1.481, 0.00343299)
+collision_layer = 16
 collision_mask = 4
 
 [node name="RightArmCollision" type="CollisionShape3D" parent="RightArm"]
-transform = Transform3D(-0.75, -1.53953e-08, 6.3734e-08, 0, -0.729032, -0.176102, 6.55671e-08, -0.176102, 0.729032, -0.575, -0.5, 0.262)
-shape = SubResource("CapsuleShape3D_8bw3f")
+transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011, -0.0587007, 1.29921e-08, -0.0587007, 0.243011, -0.214132, -0.259183, -0.0206364)
+shape = SubResource("CapsuleShape3D_vwtpd")
 
-[node name="RightArmMesh" type="MeshInstance3D" parent="RightArm"]
-transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -0.575, -0.5, 0.262)
-material_override = SubResource("StandardMaterial3D_1i43c")
-mesh = SubResource("CapsuleMesh_2w241")
+[node name="RightArmCollision2" type="CollisionShape3D" parent="RightArm"]
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, -0.254983, -0.397642, 0.0520141)
+shape = SubResource("CapsuleShape3D_6ml87")
 
 [node name="LeftArm" type="Area3D" parent="."]
-transform = Transform3D(-1, 6.90199e-08, -1.34298e-07, 0, 0.889416, 0.457098, 1.50996e-07, 0.457098, -0.889416, 0, 1, 0)
-visible = false
+transform = Transform3D(-1, -1.51808e-08, 8.60946e-08, 0, 0.984807, 0.173648, -8.74228e-08, 0.173648, -0.984807, 0, 1.481, 0)
+collision_layer = 16
 collision_mask = 4
 
 [node name="LeftArmCollision" type="CollisionShape3D" parent="LeftArm"]
-transform = Transform3D(0.75, -1.13247e-07, -6.55671e-08, -1.13247e-07, -0.75, 8.47033e-22, -6.55671e-08, 9.90035e-15, -0.75, 0.575, -0.5, 0.262)
-shape = SubResource("CapsuleShape3D_pltpd")
+transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011, -0.0587007, 1.29921e-08, -0.0587007, 0.243011, 0.214164, -0.26154, -0.0246505)
+shape = SubResource("CapsuleShape3D_j07y6")
 
-[node name="LeftArmMesh" type="MeshInstance3D" parent="LeftArm"]
-transform = Transform3D(-0.75, 5.2108e-15, -6.55672e-08, 1.05879e-22, 0.750001, 5.96046e-08, 6.55671e-08, 5.96046e-08, -0.750001, 0.575, -0.5, 0.262)
-material_override = SubResource("StandardMaterial3D_sbpok")
-mesh = SubResource("CapsuleMesh_ibtn7")
-skeleton = NodePath("../../RightArm")
+[node name="LeftArmCollision2" type="CollisionShape3D" parent="LeftArm"]
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, 0.255, -0.4, 0.091)
+shape = SubResource("CapsuleShape3D_wjcme")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -96,21 +89,21 @@ bones/4/rotation = Quaternion(0.0125561, 0.000265839, 0.500511, 0.865639)
 bones/5/rotation = Quaternion(0.704934, 0.317322, 0.573925, -0.270156)
 bones/6/rotation = Quaternion(-0.383577, 0.0935229, 0.150666, 0.906323)
 bones/7/rotation = Quaternion(0.0125723, -0.000265705, -0.501168, 0.865259)
-bones/14/rotation = Quaternion(0.217876, -0.307166, -0.5567, 0.740449)
-bones/15/rotation = Quaternion(0.7018, -0.0705529, -0.0426433, 0.707588)
-bones/16/rotation = Quaternion(0.0543152, -0.235494, -0.583642, 0.775213)
+bones/14/rotation = Quaternion(-0.0352767, -0.00664567, -0.624228, 0.780417)
+bones/15/rotation = Quaternion(0.7018, -0.0705529, -0.0426434, 0.707588)
+bones/16/rotation = Quaternion(0.0543153, -0.235494, -0.583642, 0.775213)
 bones/17/rotation = Quaternion(0.267256, 0.323316, -0.509459, 0.751327)
 bones/18/rotation = Quaternion(0.113447, 0.228844, -0.222838, 0.9408)
-bones/19/position = Vector3(-0.00537527, 0.0489729, 0.00222359)
+bones/19/position = Vector3(-0.00537525, 0.048973, 0.00222356)
 bones/19/rotation = Quaternion(-0.319138, -0.182026, -0.232855, 0.900442)
-bones/21/rotation = Quaternion(0.217876, 0.307166, 0.5567, 0.740449)
+bones/21/rotation = Quaternion(-0.0593593, -0.0981624, 0.62499, 0.772158)
 bones/22/rotation = Quaternion(0.7018, 0.0705529, 0.0426434, 0.707588)
 bones/23/rotation = Quaternion(0.0543153, 0.235494, 0.583642, 0.775213)
 bones/24/rotation = Quaternion(0.267256, -0.323316, 0.509459, 0.751327)
 bones/25/rotation = Quaternion(0.113447, -0.228844, 0.222838, 0.9408)
-bones/26/position = Vector3(0.00537519, 0.0489727, 0.00222358)
+bones/26/position = Vector3(0.00537518, 0.048973, 0.00222347)
 bones/26/rotation = Quaternion(-0.319138, 0.182026, 0.232855, 0.900442)
-bones/27/position = Vector3(0.0101915, 0.216128, 0.0905061)
+bones/27/position = Vector3(-0.00886324, 0.216085, 0.0891434)
 bones/30/position = Vector3(-0.327902, -0.510707, 0.0622432)
 bones/30/rotation = Quaternion(-0.000154143, 0.0957177, 0.000454608, 0.995408)
 bones/31/rotation = Quaternion(-6.31481e-08, 8.96354e-08, 0.00167223, 0.999999)
@@ -130,7 +123,7 @@ bones/44/position = Vector3(-0.134747, -0.0868488, 0.538057)
 bones/44/rotation = Quaternion(-0.687695, 0.00375823, 0.725981, -0.00356003)
 
 [node name="backpack" parent="Model/Humanoid_Rigged Great/Rig/Skeleton3D" index="0"]
-transform = Transform3D(-0.165622, -3.86712e-09, 0.0319987, -4.58568e-09, 0.168685, -1.447e-08, -0.0319987, -1.87268e-09, -0.165622, 0.0148563, 1.08729, -0.153876)
+transform = Transform3D(-0.165622, -3.86712e-09, 0.0319987, -4.58568e-09, 0.168685, -1.447e-08, -0.0319987, -1.87268e-09, -0.165622, 0.0336003, 1.08729, -0.150188)
 
 [connection signal="body_entered" from="RightArm" to="." method="_on_right_arm_body_entered"]
 [connection signal="body_entered" from="LeftArm" to="." method="_on_left_arm_body_entered"]

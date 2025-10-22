@@ -9,7 +9,7 @@ func initialize():
 	collision = get_parent().get_parent().get_node("Collision")
 
 func process_state(delta: float):
-	print("Ragdoll")
+	#print("Ragdoll")
 	#ragdoll code
 	#add timer so that ragdoll lasts ~5 seconds
 	body.visible = false
