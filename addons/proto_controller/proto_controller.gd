@@ -262,7 +262,7 @@ func player_hit():
 func enter_death_box():
 	death_box_checker = death_box.get_overlapping_bodies()
 	if (not death_box_checker.is_empty()):
-		Input.action_press("ui_up")
+		#Input.action_press("ui_up")
 		print("Deathbox")
 		#player goes into ragdoll permenantly
 		ui.visible = true

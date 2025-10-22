@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxpv1cje7u2dr"]
+
+[ext_resource type="PackedScene" uid="uid://2qbkxgeh2ox" path="res://Humanoid_Rigged Great.glb" id="1_eobum"]
+
+[node name="Model" type="Node3D"]
+
+[node name="Humanoid_Rigged Great" parent="." instance=ExtResource("1_eobum")]
+
+[node name="Skeleton3D" parent="Humanoid_Rigged Great/Rig" index="0"]
+bones/2/rotation = Quaternion(0.744784, -0.29567, -0.522779, -0.290823)
+bones/3/rotation = Quaternion(-0.393098, -0.110345, 0.016087, 0.91271)
+bones/4/rotation = Quaternion(0.00223571, 0.000305891, 0.0891197, 0.996018)
+bones/6/rotation = Quaternion(-0.393098, 0.110345, -0.016087, 0.91271)
+bones/7/rotation = Quaternion(0.00223566, -0.000305856, -0.0891197, 0.996018)
+bones/14/rotation = Quaternion(-0.0485119, 0.0181997, -0.324263, 0.944547)
+bones/15/rotation = Quaternion(0.0992367, -0.000795986, 0.0394227, 0.994282)
+bones/17/rotation = Quaternion(0.0866332, 0.0141781, -0.0601851, 0.99432)
+bones/24/rotation = Quaternion(0.0866333, -0.0141781, 0.0601851, 0.99432)
+bones/30/position = Vector3(0, -0.509886, 0)
+bones/30/rotation = Quaternion(0, 0, 0, 1)
+bones/31/rotation = Quaternion(-7.34576e-08, 8.5674e-08, 0.00167223, 0.999999)
+bones/31/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.0251287, -0.0345324, 0.899752, -0.434308)
+bones/36/position = Vector3(-0.0045605, 0.980868, -1.71363e-07)
+bones/36/rotation = Quaternion(-8.59145e-08, 1.02044e-07, 0.0131545, 0.999914)
+bones/44/rotation = Quaternion(-0.687695, 0.00375823, 0.725981, -0.00356003)
+
+[node name="backpack" parent="Humanoid_Rigged Great/Rig/Skeleton3D" index="0"]
+transform = Transform3D(-0.168684, -1.17931e-09, -0.000581151, -7.33037e-10, 0.168685, -3.8336e-08, 0.000581158, -2.45085e-08, -0.168684, -0.0173921, 1.23355, -0.153602)
+
+[editable path="Humanoid_Rigged Great"]

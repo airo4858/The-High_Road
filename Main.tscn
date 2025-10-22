@@ -81,7 +81,7 @@ transform = Transform3D(-0.589337, 0, -0.807887, 0, 1, 0, 0.807887, 0, -0.589337
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="EnemyHiker1" parent="Enemies" instance=ExtResource("2_i7e6j")]
-transform = Transform3D(-0.592168, 0, 0.805815, 0, 1, 0, -0.805815, 0, -0.592168, 197.946, 16.4289, -106.969)
+transform = Transform3D(-0.72709, 0, 0.686542, 0, 1, 0, -0.686542, 0, -0.72709, 192.24, 14.7458, -100.562)
 
 [node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"

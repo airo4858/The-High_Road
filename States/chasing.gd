@@ -9,6 +9,7 @@ var detection : Area3D
 var attack : Area3D
 var leave_detection : Array
 var enter_attack : Array
+var animation : AnimationPlayer
 
 
 func initialize():
@@ -16,6 +17,7 @@ func initialize():
 	attack = body.get_node("Attack")
 	attacking_state = get_parent().get_node("Attacking")
 	idle_state = get_parent().get_node("Idle")
+	animation = get_parent().get_parent().get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
 	#target = get_parent().get_parent().get_parent().get_node("ProtoController")
 
 func process_state(delta: float):
@@ -23,6 +25,7 @@ func process_state(delta: float):
 	#body.get_gravity() * delta
 	var direction = (target.transform.origin - body.transform.origin).normalized()
 	#direction = direction.normalized()
+	animation.play("walk")
 	
 	var velocity = body.velocity
 	velocity.x = direction.x * chase_speed
