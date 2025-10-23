@@ -32,10 +32,10 @@ public partial class Arduino : Node
 		int Sensor1 = int.Parse(parts[1]);
 		int Sensor2 = int.Parse(parts[2]);
 		int SensorButton = int.Parse(parts[3]);
-		GD.Print(Sensor0);
-		GD.Print(Sensor1);
-		GD.Print(Sensor2);
-		GD.Print(SensorButton);
+		//GD.Print(Sensor0);
+		//GD.Print(Sensor1);
+		//GD.Print(Sensor2);
+		//GD.Print(SensorButton);
 		
 		//Camera Rotation
 		if (Sensor2 >= 600)

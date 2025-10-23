@@ -2072,7 +2072,7 @@ shape = SubResource("CapsuleShape3D_wjcme")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.311771, 0.950157, 0, -0.950157, 0.311771, 0, 1.65766, 0.100283)
+transform = Transform3D(1, 0, 0, 0, 0.967414, -0.253201, 0, 0.253201, 0.967414, 0, -0.203737, 3.21949)
 
 [node name="Arduino" type="Node" parent="."]
 script = ExtResource("2_xhkah")
