@@ -10,7 +10,8 @@ var attack : Area3D
 var leave_detection : Array
 var enter_attack : Array
 var animation : AnimationPlayer
-
+var hiker_left : Area3D
+var hiker_right : Area3D
 
 func initialize():
 	detection = body.get_node("Detection")
@@ -18,6 +19,8 @@ func initialize():
 	attacking_state = get_parent().get_node("Attacking")
 	idle_state = get_parent().get_node("Idle")
 	animation = get_parent().get_parent().get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
+	hiker_left = get_parent().get_parent().get_node("LeftArm")
+	hiker_right = get_parent().get_parent().get_node("RightArm")
 	#target = get_parent().get_parent().get_parent().get_node("ProtoController")
 
 func process_state(delta: float):
@@ -34,6 +37,8 @@ func process_state(delta: float):
 	body.velocity = velocity
 	body.move_and_slide()
 	
+	hiker_left.monitoring = false
+	hiker_right.monitoring = false
 	body.look_at(target.global_transform.origin, Vector3.UP)
 	body.rotate_y(deg_to_rad(180))
 	
@@ -45,5 +50,7 @@ func process_state(delta: float):
 		change_state.emit(idle_state, "Idle")
 	
 	if (not enter_attack.is_empty()):
+		hiker_left.monitoring = true
+		hiker_right.monitoring = true
 		change_state.emit(attacking_state, "Attacking")
 		attacking_state.target = get_parent().get_parent().get_parent().get_parent().get_node("ProtoController")

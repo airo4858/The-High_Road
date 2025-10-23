@@ -12,5 +12,4 @@ func process_state(delta: float):
 	#print("Ragdoll")
 	#ragdoll code
 	#add timer so that ragdoll lasts ~5 seconds
-	body.visible = false
-	collision.disabled = true
+	body.queue_free()

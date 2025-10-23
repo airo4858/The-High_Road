@@ -26,6 +26,7 @@ public partial class Arduino : Node
 		if (!serialPort.IsOpen) return;
 		
 		string Sensor = serialPort.ReadLine();
+		//Sensor = Sensor + "|0";
 		string[] parts = Sensor.Split('|');
 		
 		int Sensor0 = int.Parse(parts[0]);
@@ -38,9 +39,9 @@ public partial class Arduino : Node
 		//GD.Print(SensorButton);
 		
 		//Camera Rotation
-		if (Sensor2 >= 600)
+		if (Sensor2 >= 200)
 			controller.Call("set_input_direction", -0.8);
-		else if (Sensor2 <= 424)
+		else if (Sensor2 <= 150)
 			controller.Call("set_input_direction", 0.8);
 		else
 			controller.Call("set_input_direction", 0.0);
