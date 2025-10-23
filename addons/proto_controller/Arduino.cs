@@ -47,15 +47,17 @@ public partial class Arduino : Node
 		
 		//Left Arm Rotation
 		float leftSensor = (float)Sensor1;
-		float left_degrees = -0.07109375f * leftSensor - 27.2f;
+		float left_degrees = leftSensor;
 		controller.Call("set_left_arm_rotation", left_degrees);
 		
 		//Right Arm Rotation
 		float rightSensor = (float)Sensor0;
-		float right_degrees = -0.07109375f * rightSensor - 27.2f;
+		float right_degrees = rightSensor;
 		controller.Call("set_right_arm_rotation", right_degrees);
 		
 		//Button Movement
 		controller.Call("move_player", SensorButton);
 	}
 }
+
+//float left_degrees = -0.07109375f * leftSensor - 27.2f;

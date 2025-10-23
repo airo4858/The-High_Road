@@ -149,8 +149,10 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	rotate_look(delta)
-	move_right_arm()
-	move_left_arm()
+	if velocity == Vector3(0,0,0):
+		animation.stop()
+		move_right_arm()
+		move_left_arm()
 	enter_death_box()
 
 ## Rotate us to look around.
@@ -187,7 +189,7 @@ func set_input_direction(dir: float):
 	input_dir = dir
 	
 func move_left_arm():
-	left_arm.rotation_degrees.x = left_arm_rotate
+	left_arm.rotation_degrees.x = -0.060547*left_arm_rotate - 10
 	if left_arm.rotation_degrees.x <= -30.0:
 		left_arm.monitoring = false
 	else:
@@ -205,7 +207,7 @@ func set_left_arm_rotation(rotate: float):
 	left_arm_rotate = rotate
 
 func move_right_arm():
-	right_arm.rotation_degrees.x = right_arm_rotate
+	right_arm.rotation_degrees.x = -0.060547*right_arm_rotate - 10
 	if right_arm.rotation_degrees.x <= -30.0:
 		right_arm.monitoring = false
 	else:
@@ -227,6 +229,7 @@ func move_player(button: int):
 		animation.play("walk")
 		Input.action_press("ui_up")
 	else:
+		velocity = Vector3(0,0,0)
 		if animation.is_playing():
 			animation.stop()
 		Input.action_release("ui_up")

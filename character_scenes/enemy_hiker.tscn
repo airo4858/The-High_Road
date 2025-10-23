@@ -2171,7 +2171,7 @@ disabled = true
 
 [node name="Detection" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-collision_layer = 4
+collision_layer = 0
 
 [node name="DetectionRange" type="CollisionShape3D" parent="Detection"]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
