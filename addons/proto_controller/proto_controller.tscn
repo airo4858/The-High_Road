@@ -18,12 +18,14 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vwtpd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ml87"]
-height = 3.0
+radius = 1.6
+height = 3.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j07y6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjcme"]
-height = 3.0
+radius = 1.6
+height = 3.5
 
 [sub_resource type="Animation" id="Animation_8waew"]
 resource_name = "Non-OverlappingAction"

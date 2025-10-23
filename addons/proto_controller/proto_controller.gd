@@ -43,7 +43,7 @@ var left_ROTATION_END   = Quaternion(0.361, -0.368, -0.553, 0.653).normalized()
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 3.5
+@export var base_speed : float = 3.25
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -72,7 +72,7 @@ var look_rotation := 0.0
 var move_speed : float = 0.0
 var freeflying : bool = false
 
-@export var turn_speed := 0.75
+@export var turn_speed := 0.5
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -190,10 +190,6 @@ func set_input_direction(dir: float):
 	
 func move_left_arm():
 	left_arm.rotation_degrees.x = -0.060547*left_arm_rotate - 10
-	if left_arm.rotation_degrees.x <= -30.0:
-		left_arm.monitoring = false
-	else:
-		left_arm.monitoring = true
 	
 	var left_bone_index = skeleton.find_bone(left_bone_name)
 	var left_t = clamp((left_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
@@ -208,10 +204,6 @@ func set_left_arm_rotation(rotate: float):
 
 func move_right_arm():
 	right_arm.rotation_degrees.x = -0.060547*right_arm_rotate - 10
-	if right_arm.rotation_degrees.x <= -30.0:
-		right_arm.monitoring = false
-	else:
-		right_arm.monitoring = true
 	
 	var right_bone_index = skeleton.find_bone(right_bone_name)
 	var right_t = clamp((right_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
