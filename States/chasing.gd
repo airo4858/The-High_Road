@@ -1,7 +1,7 @@
 extends State
 class_name Chasing
 
-@export var chase_speed: float = 5.0
+@export var chase_speed: float = 2.3
 var target: CharacterBody3D
 var attacking_state : State
 var idle_state : State

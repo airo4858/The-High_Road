@@ -16,6 +16,17 @@ var death_box : Area3D
 var death_box_checker : Array
 var ui : CanvasLayer
 var animation : AnimationPlayer
+var skeleton : Skeleton3D
+
+var right_bone_name := "UpperArm.R"
+var right_ROTATION_START = Quaternion(0.004, 0.006, 0.600, 0.799).normalized()
+var right_ROTATION_END   = Quaternion(0.361, 0.368, 0.553, 0.653).normalized()
+var INPUT_MIN = 0.0
+var INPUT_MAX = 1024.0
+
+var left_bone_name := "UpperArm.L"
+var left_ROTATION_START = Quaternion(0.004, -0.006, -0.600, 0.799).normalized()
+var left_ROTATION_END   = Quaternion(0.361, -0.368, -0.553, 0.653).normalized()
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -32,7 +43,7 @@ var animation : AnimationPlayer
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 6.0
+@export var base_speed : float = 3.5
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -76,6 +87,7 @@ func _ready() -> void:
 	death_box = get_node("/root/Main/DeathBox")
 	ui = get_node("/root/Main/UI")
 	animation = get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
+	skeleton = get_node("Model/Humanoid_Rigged Great/Rig/Skeleton3D")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -181,6 +193,14 @@ func move_left_arm():
 	else:
 		left_arm.monitoring = true
 	
+	var left_bone_index = skeleton.find_bone(left_bone_name)
+	var left_t = clamp((left_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
+	var left_quat = left_ROTATION_START.slerp(left_ROTATION_END, left_t)
+	
+	var left_pose_transform = skeleton.get_bone_pose(left_bone_index)
+	left_pose_transform.basis = Basis(left_quat)
+	skeleton.set_bone_pose(left_bone_index, left_pose_transform)
+	
 func set_left_arm_rotation(rotate: float):
 	left_arm_rotate = rotate
 
@@ -191,6 +211,14 @@ func move_right_arm():
 	else:
 		right_arm.monitoring = true
 	
+	var right_bone_index = skeleton.find_bone(right_bone_name)
+	var right_t = clamp((right_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
+	var right_quat = right_ROTATION_START.slerp(right_ROTATION_END, right_t)
+		
+	var right_pose_transform = skeleton.get_bone_pose(right_bone_index)
+	right_pose_transform.basis = Basis(right_quat)
+	skeleton.set_bone_pose(right_bone_index, right_pose_transform)
+	
 func set_right_arm_rotation(rotate: float):
 	right_arm_rotate = rotate
 
@@ -199,7 +227,8 @@ func move_player(button: int):
 		animation.play("walk")
 		Input.action_press("ui_up")
 	else:
-		animation.play("still")
+		if animation.is_playing():
+			animation.stop()
 		Input.action_release("ui_up")
 
 func enable_freefly():
