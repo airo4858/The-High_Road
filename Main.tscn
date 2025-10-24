@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cb8lfyogxmimh"]
+[gd_scene load_steps=20 format=3 uid="uid://cb8lfyogxmimh"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_2aj0k"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
 [ext_resource type="PackedScene" uid="uid://b6i2m3ik1a118" path="res://character_scenes/enemy_hiker.tscn" id="2_i7e6j"]
 [ext_resource type="PackedScene" uid="uid://cob4c5pkqrx7f" path="res://character_scenes/pine_tree.tscn" id="3_6ko4u"]
@@ -65,8 +66,71 @@ world_background = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_p5nep"]
 size = Vector3(800, 50, 600)
 
+[sub_resource type="Animation" id="Animation_ws2l8"]
+resource_name = "IntroScene"
+length = 12.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.33333, 2.66667, 3.83333, 5.29167, 7.79167, 12.2083),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(208.729, 48.2661, -129.187), Vector3(208.729, 64.6362, -129.187), Vector3(232.974, 125.648, -86.3244), Vector3(212.267, 180.478, -64.5008), Vector3(212.267, 238.202, -19.5859), Vector3(263.219, 196.393, 115.576), Vector3(304.008, 181.987, -23.4913)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroCamera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.33333, 2.66667, 3.83333, 5.29167, 7.79167, 12.2083),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -2.3248, 0), Vector3(0.300038, -2.34705, 0.00393145), Vector3(0.300038, -2.34705, 0.00393145), Vector3(-0.194299, -2.28307, 0.0207338), Vector3(-0.194299, -1.66146, 0.0207338), Vector3(-0.282743, 1.33692, 0), Vector3(-0.403171, 0.97913, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w0v61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(208.729, 48.2661, -129.187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroCamera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.3248, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01mcj"]
+_data = {
+"IntroScene": SubResource("Animation_ws2l8"),
+"RESET": SubResource("Animation_w0v61")
+}
+
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155731, 0.205719, -0.169888)
+script = ExtResource("1_2aj0k")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wm5ac")
@@ -77,12 +141,12 @@ light_energy = 0.921
 shadow_enabled = true
 
 [node name="ProtoController" parent="." instance=ExtResource("1_xw4ep")]
-transform = Transform3D(-0.63161, 0, 0.775286, 0, 1, 0, -0.775286, 0, -0.63161, 227.444, 10.1768, -130.759)
+transform = Transform3D(-0.63161, 0, 0.775286, 0, 1, 0, -0.775286, 0, -0.63161, 227.444, 10.8969, -130.759)
 
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="EnemyHiker1" parent="Enemies" instance=ExtResource("2_i7e6j")]
-transform = Transform3D(-0.72709, 0, 0.686542, 0, 1, 0, -0.686542, 0, -0.72709, 192.24, 14.7458, -100.562)
+transform = Transform3D(-0.72709, 0, 0.686542, 0, 1, 0, -0.686542, 0, -0.72709, 192.24, 15.4161, -100.562)
 
 [node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"
@@ -1427,5 +1491,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.885, -20, 0)
 shape = SubResource("BoxShape3D_p5nep")
 
 [node name="UI" parent="." instance=ExtResource("6_ydhtl")]
-visible = false
 script = ExtResource("7_7j8if")
+
+[node name="StartAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_01mcj")
+}
+
+[node name="IntroCamera" type="Camera3D" parent="."]
+transform = Transform3D(-0.68456, 0, -0.728957, 0, 1, 0, 0.728957, 0, -0.68456, 208.729, 48.2661, -129.187)

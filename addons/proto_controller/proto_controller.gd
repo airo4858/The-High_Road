@@ -15,7 +15,10 @@ var ragdoll_timer : float = 1.0
 var death_box : Area3D
 var death_box_checker : Array
 var ui : CanvasLayer
+var ui_gameover : Label
+var ui_animation : AnimationPlayer
 var animation : AnimationPlayer
+var main_animation : AnimationPlayer
 var skeleton : Skeleton3D
 
 var right_bone_name := "UpperArm.R"
@@ -88,6 +91,9 @@ func _ready() -> void:
 	left_arm = get_node("LeftArm")
 	death_box = get_node("/root/Main/DeathBox")
 	ui = get_node("/root/Main/UI")
+	ui_gameover = get_node("/root/Main/UI/GameOver")
+	ui_animation = get_node("/root/Main/UI/UIAnimation")
+	main_animation = get_node("/root/Main/StartAnimation")
 	animation = get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
 	skeleton = get_node("Model/Humanoid_Rigged Great/Rig/Skeleton3D")
 
@@ -221,12 +227,14 @@ func set_right_arm_rotation(rotate: float):
 func move_player(button: int):
 	if button == 0:
 		animation.play("walk")
-		Input.action_press("ui_up")
+		if !main_animation.is_playing():
+			Input.action_press("ui_up")
 	else:
 		velocity = Vector3(0,0,0)
 		if animation.is_playing():
 			animation.stop()
 		Input.action_release("ui_up")
+		Input.action_press("ui_accept")
 
 func enable_freefly():
 	collider.disabled = true
@@ -295,4 +303,4 @@ func enter_death_box():
 		#Input.action_press("ui_up")
 		print("Deathbox")
 		#player goes into ragdoll permenantly
-		ui.visible = true
+		ui_gameover.visible = true
