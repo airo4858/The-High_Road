@@ -28,6 +28,8 @@ var left_bone_name := "UpperArm.L"
 var left_ROTATION_START = Quaternion(0.004, -0.006, -0.600, 0.799).normalized()
 var left_ROTATION_END   = Quaternion(0.361, -0.368, -0.553, 0.653).normalized()
 
+@export var health : int
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -289,7 +291,7 @@ func player_hit():
 
 func enter_death_box():
 	death_box_checker = death_box.get_overlapping_bodies()
-	if (not death_box_checker.is_empty()):
+	if (not death_box_checker.is_empty() and death_box_checker[0].is_in_group("Player")):
 		#Input.action_press("ui_up")
 		print("Deathbox")
 		#player goes into ragdoll permenantly
