@@ -11,7 +11,6 @@ var left_arm_rotate : float
 var right_arm_rotate : float
 var right_arm : Area3D
 var left_arm : Area3D
-var ragdoll_timer : float = 1.0
 var death_box : Area3D
 var death_box_checker : Array
 var ui : CanvasLayer
@@ -20,6 +19,9 @@ var ui_animation : AnimationPlayer
 var animation : AnimationPlayer
 var main_animation : AnimationPlayer
 var skeleton : Skeleton3D
+
+var model : Node3D
+var helmet : MeshInstance3D
 
 var right_bone_name := "UpperArm.R"
 var right_ROTATION_START = Quaternion(0.004, 0.006, 0.600, 0.799).normalized()
@@ -96,6 +98,8 @@ func _ready() -> void:
 	main_animation = get_node("/root/Main/StartAnimation")
 	animation = get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
 	skeleton = get_node("Model/Humanoid_Rigged Great/Rig/Skeleton3D")
+	model = get_node("Model")
+	helmet = get_node("Mesh")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -290,9 +294,14 @@ func _on_right_arm_body_entered(body: Node3D) -> void:
 		body.hit()
 
 func player_hit():
-	#enter ragdoll for set amount of time equal to ragdoll_timer
-	ragdoll_timer += 0.5
-	#return to normal state
+	health -= 1
+	if health == 0:
+		ui_gameover.visible = true
+		helmet.visible = false
+		model.visible = false
+		animation.play("poof")
+		await animation.animation_finished
+		queue_free()
 
 #func player_ragdoll():
 	

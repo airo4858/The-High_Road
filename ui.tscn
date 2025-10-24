@@ -110,6 +110,15 @@ offset_bottom = -478.0
 theme_override_font_sizes/font_size = 26
 text = "Squeeze to Start"
 
+[node name="Health" type="Label" parent="."]
+visible = false
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 129.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 26
+text = "Health: 3"
+
 [node name="UIAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ikta4")

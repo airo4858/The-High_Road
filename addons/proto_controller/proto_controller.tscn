@@ -2300,6 +2300,7 @@ bones/33/rotation = Quaternion(-0.0252442, -0.0344482, 0.898294, 0.437315)
 bones/33/scale = Vector3(1, 1, 1)
 bones/34/rotation = Quaternion(-0.0318363, -0.00244883, -0.646548, 0.762205)
 bones/34/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.0251287, -0.0345324, 0.899752, -0.434308)
 bones/35/scale = Vector3(1, 1, 1)
 bones/36/position = Vector3(-0.333772, 0.980044, 0.0627842)
 bones/36/rotation = Quaternion(0.0011049, 0.0957115, 0.0135487, 0.995316)
@@ -2320,10 +2321,11 @@ bones/42/position = Vector3(-3.54835e-05, 1.48118e-05, 4.00612e-07)
 bones/42/scale = Vector3(1, 1, 1)
 bones/43/rotation = Quaternion(0.00248033, -0.00565148, 0.0932717, 0.995622)
 bones/44/position = Vector3(-0.134747, -0.0868488, 0.538057)
+bones/44/rotation = Quaternion(-0.687695, 0.00375823, 0.725981, -0.00356003)
 bones/44/scale = Vector3(1, 1, 1)
 
 [node name="backpack" parent="Model/Humanoid_Rigged Great/Rig/Skeleton3D" index="0"]
-transform = Transform3D(-0.165622, -1.73777e-08, 0.0319987, -1.23961e-08, 0.168685, 1.81801e-08, -0.0319987, 2.95473e-08, -0.165622, 0.0148563, 1.08729, -0.153876)
+transform = Transform3D(-0.165622, -1.6278e-08, 0.0319987, -1.04188e-08, 0.168685, 3.70389e-08, -0.0319987, 1.82361e-08, -0.165622, 0.0148563, 1.08729, -0.153876)
 
 [node name="AnimationPlayer" parent="Model/Humanoid_Rigged Great" index="1"]
 libraries = {

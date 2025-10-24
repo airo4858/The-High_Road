@@ -6,6 +6,7 @@ extends Node3D
 @onready var player = $ProtoController
 @onready var ui_animation = $UI/UIAnimation
 @onready var start_credits = $UI/StartCredits
+@onready var health = $UI/Health
 
 var in_start = true
 
@@ -30,3 +31,4 @@ func _process(delta: float):
 		start_credits.visible = false
 		starting_camera.current = false
 		player_camera.current = true
+		health.visible = true
