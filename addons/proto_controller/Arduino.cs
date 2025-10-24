@@ -16,7 +16,7 @@ public partial class Arduino : Node
 		LeftArm = GetNode("/root/Main/ProtoController/LeftArm");
 		RightArm = GetNode("/root/Main/ProtoController/RightArm");
 		controller = GetNode("/root/Main/ProtoController");
-		serialPort = new SerialPort("COM3",9600);
+		serialPort = new SerialPort("COM6",9600);
 		serialPort.Open();
 	}
 
@@ -39,25 +39,26 @@ public partial class Arduino : Node
 		//GD.Print(SensorButton);
 		
 		//Camera Rotation
-		if (Sensor2 >= 200)
+		if (Sensor1 >= 200)
 			controller.Call("set_input_direction", -0.8);
-		else if (Sensor2 <= 150)
+		else if (Sensor1 <= 150)
 			controller.Call("set_input_direction", 0.8);
 		else
 			controller.Call("set_input_direction", 0.0);
 		
 		//Left Arm Rotation
-		float leftSensor = (float)Sensor1;
+		float leftSensor = (float)Sensor0;
 		float left_degrees = leftSensor;
 		controller.Call("set_left_arm_rotation", left_degrees);
 		
 		//Right Arm Rotation
-		float rightSensor = (float)Sensor0;
+		float rightSensor = (float)Sensor2;
 		float right_degrees = rightSensor;
 		controller.Call("set_right_arm_rotation", right_degrees);
 		
 		//Button Movement
 		controller.Call("move_player", SensorButton);
+		controller.Call("enter_gameplay", SensorButton);
 	}
 }
 

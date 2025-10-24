@@ -2,6 +2,33 @@
 
 [ext_resource type="Texture2D" uid="uid://bw4c2k7glgdlk" path="res://Environment_Pics/The_High_Road Logo.png" id="1_tsrwd"]
 
+[sub_resource type="Animation" id="Animation_jebog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.00392157)]
+}
+
 [sub_resource type="Animation" id="Animation_v78u5"]
 resource_name = "StartScreen"
 length = 2.0
@@ -28,33 +55,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.00392157), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_jebog"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Logo:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.00392157)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ikta4"]
@@ -93,6 +93,7 @@ Model and Animations: Sage Morgan-LaRosa
 Sounds: Max Dietz"
 
 [node name="Instructions" type="Label" parent="StartCredits"]
+layout_mode = 0
 offset_left = 871.0
 offset_top = 25.0
 offset_right = 1127.0
@@ -103,6 +104,7 @@ Rotate Waist to Control Direction
 Move Arms to Punch!"
 
 [node name="ToStart" type="Label" parent="StartCredits"]
+layout_mode = 0
 offset_left = 453.0
 offset_top = -514.0
 offset_right = 658.0

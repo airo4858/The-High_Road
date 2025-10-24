@@ -26,8 +26,10 @@ var helmet : MeshInstance3D
 var right_bone_name := "UpperArm.R"
 var right_ROTATION_START = Quaternion(0.004, 0.006, 0.600, 0.799).normalized()
 var right_ROTATION_END   = Quaternion(0.361, 0.368, 0.553, 0.653).normalized()
-var INPUT_MIN = 0.0
-var INPUT_MAX = 1024.0
+var right_INPUT_MIN = 210.0
+var right_INPUT_MAX = 115.0
+var left_INPUT_MIN = 40.0
+var left_INPUT_MAX = 120.0
 
 var left_bone_name := "UpperArm.L"
 var left_ROTATION_START = Quaternion(0.004, -0.006, -0.600, 0.799).normalized()
@@ -204,7 +206,7 @@ func move_left_arm():
 	left_arm.rotation_degrees.x = -0.060547*left_arm_rotate - 10
 	
 	var left_bone_index = skeleton.find_bone(left_bone_name)
-	var left_t = clamp((left_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
+	var left_t = clamp((left_arm_rotate - left_INPUT_MIN) / (left_INPUT_MAX - left_INPUT_MIN), 0.0, 1.0)
 	var left_quat = left_ROTATION_START.slerp(left_ROTATION_END, left_t)
 	
 	var left_pose_transform = skeleton.get_bone_pose(left_bone_index)
@@ -218,7 +220,7 @@ func move_right_arm():
 	right_arm.rotation_degrees.x = -0.060547*right_arm_rotate - 10
 	
 	var right_bone_index = skeleton.find_bone(right_bone_name)
-	var right_t = clamp((right_arm_rotate - INPUT_MIN) / (INPUT_MAX - INPUT_MIN), 0.0, 1.0)
+	var right_t = clamp((right_arm_rotate - right_INPUT_MIN) / (right_INPUT_MAX - right_INPUT_MIN), 0.0, 1.0)
 	var right_quat = right_ROTATION_START.slerp(right_ROTATION_END, right_t)
 		
 	var right_pose_transform = skeleton.get_bone_pose(right_bone_index)
@@ -229,7 +231,7 @@ func set_right_arm_rotation(rotate: float):
 	right_arm_rotate = rotate
 
 func move_player(button: int):
-	if button == 0:
+	if button == 1:
 		animation.play("walk")
 		if !main_animation.is_playing():
 			Input.action_press("ui_up")
@@ -238,6 +240,9 @@ func move_player(button: int):
 		if animation.is_playing():
 			animation.stop()
 		Input.action_release("ui_up")
+		
+func enter_gameplay(button: int):
+	if button == 0:
 		Input.action_press("ui_accept")
 
 func enable_freefly():

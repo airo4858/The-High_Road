@@ -1500,4 +1500,4 @@ libraries = {
 }
 
 [node name="IntroCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.68456, 0, -0.728957, 0, 1, 0, 0.728957, 0, -0.68456, 208.729, 48.2661, -129.187)
+transform = Transform3D(-0.684563, 0, -0.728954, 0, 1, 0, 0.728954, 0, -0.684563, 208.729, 48.2661, -129.187)

@@ -23,7 +23,7 @@ func _ready():
 	ui_animation.play("StartScreen")
 
 func _process(delta: float):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and in_start == true:
 		in_start = false
 		get_tree().paused = false
 		animation.stop()
