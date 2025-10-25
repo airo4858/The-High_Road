@@ -25,7 +25,10 @@ func initialize():
 func process_state(delta: float):
 	#print("Attacking")
 	body.move_and_slide()
-	body.look_at(target.global_transform.origin, Vector3.UP)
+	var spot = body.global_transform.origin
+	var target_spot = target.global_transform.origin
+	target_spot.y = spot.y
+	body.look_at(target_spot, Vector3.UP)
 	body.rotate_y(deg_to_rad(180))
 	
 	body.velocity.y -= -body.get_gravity().y * delta 

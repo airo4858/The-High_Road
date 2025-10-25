@@ -235,8 +235,12 @@ func move_player(button: int):
 		animation.play("walk")
 		if !main_animation.is_playing():
 			Input.action_press("ui_up")
+			right_arm.monitoring = false
+			left_arm.monitoring = false
 	else:
 		velocity = Vector3(0,0,0)
+		right_arm.monitoring = true
+		left_arm.monitoring = true
 		if animation.is_playing():
 			animation.stop()
 		Input.action_release("ui_up")
@@ -304,6 +308,7 @@ func player_hit():
 		animation.play("poof")
 		await animation.animation_finished
 		queue_free()
+		get_tree().paused = true
 
 #func player_ragdoll():
 	

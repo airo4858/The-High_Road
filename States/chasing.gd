@@ -39,7 +39,11 @@ func process_state(delta: float):
 	
 	hiker_left.monitoring = false
 	hiker_right.monitoring = false
-	body.look_at(target.global_transform.origin, Vector3.UP)
+	
+	var spot = body.global_transform.origin
+	var target_spot = target.global_transform.origin
+	target_spot.y = spot.y
+	body.look_at(target_spot, Vector3.UP)
 	body.rotate_y(deg_to_rad(180))
 	
 	#print("Chasing")
