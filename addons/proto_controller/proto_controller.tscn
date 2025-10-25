@@ -2193,6 +2193,7 @@ height = 1.5
 [node name="ProtoController" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_hpbhc")
+health = 5
 can_jump = false
 can_sprint = true
 

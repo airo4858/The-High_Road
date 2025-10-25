@@ -203,7 +203,7 @@ func set_input_direction(dir: float):
 	input_dir = dir
 	
 func move_left_arm():
-	left_arm.rotation_degrees.x = -0.060547*left_arm_rotate - 10
+	left_arm.rotation_degrees.x = -0.775*left_arm_rotate +21
 	
 	var left_bone_index = skeleton.find_bone(left_bone_name)
 	var left_t = clamp((left_arm_rotate - left_INPUT_MIN) / (left_INPUT_MAX - left_INPUT_MIN), 0.0, 1.0)
@@ -217,7 +217,7 @@ func set_left_arm_rotation(rotate: float):
 	left_arm_rotate = rotate
 
 func move_right_arm():
-	right_arm.rotation_degrees.x = -0.060547*right_arm_rotate - 10
+	right_arm.rotation_degrees.x = 0.653*right_arm_rotate - 147.05
 	
 	var right_bone_index = skeleton.find_bone(right_bone_name)
 	var right_t = clamp((right_arm_rotate - right_INPUT_MIN) / (right_INPUT_MAX - right_INPUT_MIN), 0.0, 1.0)

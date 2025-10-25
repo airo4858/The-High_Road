@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var health : int = 3
+var health : int = 5
 var player : CharacterBody3D
 
 func _ready():
