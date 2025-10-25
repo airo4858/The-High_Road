@@ -149,10 +149,43 @@ health = 3
 [node name="EnemyHiker1" parent="Enemies" instance=ExtResource("2_i7e6j")]
 transform = Transform3D(-0.72709, 0, 0.686542, 0, 1, 0, -0.686542, 0, -0.72709, 192.24, 15.4161, -100.562)
 
+[node name="EnemyHiker2" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(-0.72709, 0, 0.686542, 0, 1, 0, -0.686542, 0, -0.72709, 137.481, 22.8286, -52.9651)
+
+[node name="EnemyHiker3" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.0212566, 0, 0.999774, 0, 1, 0, -0.999774, 0, 0.0212566, 94.9129, 34.4856, -45.8101)
+
+[node name="EnemyHiker4" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.750434, 0, 0.660945, 0, 1, 0, -0.660945, 0, 0.750434, 71.5765, 42.7294, -58.7911)
+
+[node name="EnemyHiker5" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.860564, 0, -0.509342, 0, 1, 0, 0.509342, 0, 0.860564, 68.6939, 48.5436, -90.6368)
+
+[node name="EnemyHiker6" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.69884, 0, -0.715278, 0, 1, 0, 0.715278, 0, 0.69884, 85.5017, 52.5696, -111.643)
+
+[node name="EnemyHiker7" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.69884, 0, -0.715278, 0, 1, 0, 0.715278, 0, 0.69884, 106.61, 56.2795, -134.348)
+
+[node name="EnemyHiker8" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.715376, 0, 0.69874, 0, 1, 0, -0.69874, 0, 0.715376, 123.147, 64.3694, -189.966)
+
+[node name="EnemyHiker9" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.990136, 0, -0.140107, 0, 1, 0, 0.140107, 0, 0.990136, 133.24, 64.2584, -190.009)
+
+[node name="EnemyHiker10" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(0.275654, 0, 0.961257, 0, 1, 0, -0.961257, 0, 0.275654, 62.2253, 67.5718, -205.803)
+
+[node name="EnemyHiker11" parent="Enemies" instance=ExtResource("2_i7e6j")]
+transform = Transform3D(-0.474073, 0, 0.880486, 0, 1, 0, -0.880486, 0, -0.474073, 30.9144, 65.0194, -193.045)
+
 [node name="Terrain3D" type="Terrain3D" parent="." groups=["Environment"]]
 data_directory = "res://"
 material = SubResource("Terrain3DMaterial_iu6mx")
 assets = ExtResource("3_jfx6l")
+collision_mode = 3
+collision_shape_size = 64
+collision_radius = 256
 collision_layer = 2
 collision_mask = 5
 top_level = true

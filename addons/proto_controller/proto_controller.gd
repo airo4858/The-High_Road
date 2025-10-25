@@ -315,3 +315,8 @@ func enter_death_box():
 		print("Deathbox")
 		#player goes into ragdoll permenantly
 		ui_gameover.visible = true
+		helmet.visible = false
+		model.visible = false
+		animation.play("poof")
+		await animation.animation_finished
+		queue_free()
