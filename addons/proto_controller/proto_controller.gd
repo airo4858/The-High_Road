@@ -241,9 +241,6 @@ func move_player(button: int):
 			animation.stop()
 		Input.action_release("ui_up")
 		
-func enter_gameplay(button: int):
-	if button == 0:
-		Input.action_press("ui_accept")
 
 func enable_freefly():
 	collider.disabled = true

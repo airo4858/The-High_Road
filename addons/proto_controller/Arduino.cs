@@ -9,6 +9,7 @@ public partial class Arduino : Node
 	private Node LeftArm;
 	private Node RightArm;
 	private Node controller;
+	private Node Main;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -16,6 +17,7 @@ public partial class Arduino : Node
 		LeftArm = GetNode("/root/Main/ProtoController/LeftArm");
 		RightArm = GetNode("/root/Main/ProtoController/RightArm");
 		controller = GetNode("/root/Main/ProtoController");
+		Main = GetNode("/root/Main");
 		serialPort = new SerialPort("COM6",9600);
 		serialPort.Open();
 	}
@@ -58,7 +60,7 @@ public partial class Arduino : Node
 		
 		//Button Movement
 		controller.Call("move_player", SensorButton);
-		controller.Call("enter_gameplay", SensorButton);
+		Main.Call("start_game", SensorButton);
 	}
 }
 

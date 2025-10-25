@@ -16,16 +16,20 @@ func _ready():
 	animation.process_mode = Node.PROCESS_MODE_ALWAYS
 	#ui_animation.process_mode = Node.ProcessThreadMessages
 	starting_camera.process_mode = Node.PROCESS_MODE_ALWAYS
-	
+	player.set_physics_process(false)
 	starting_camera.current = true
 	player_camera.current = false
 	animation.play("IntroScene")
 	ui_animation.play("StartScreen")
 
 func _process(delta: float):
-	if Input.is_action_just_pressed("ui_accept") and in_start == true:
+	pass
+
+func start_game(button: int):
+	if in_start == true and button == 0:
 		in_start = false
 		get_tree().paused = false
+		player.set_physics_process(true)
 		animation.stop()
 		ui_animation.stop()
 		start_credits.visible = false
