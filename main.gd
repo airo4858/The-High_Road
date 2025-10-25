@@ -21,6 +21,7 @@ func _ready():
 	player_camera.current = false
 	animation.play("IntroScene")
 	ui_animation.play("StartScreen")
+	$StartScreenSound.play()
 
 func _process(delta: float):
 	pass
@@ -28,6 +29,8 @@ func _process(delta: float):
 func start_game(button: int):
 	if in_start == true and button == 0:
 		in_start = false
+		$StartScreenSound.stop()
+		$Ambient.play()
 		get_tree().paused = false
 		player.set_physics_process(true)
 		animation.stop()

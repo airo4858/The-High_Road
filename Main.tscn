@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cb8lfyogxmimh"]
+[gd_scene load_steps=22 format=3 uid="uid://bghlngp0px8k7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2aj0k"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_xw4ep"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bk003pqqyi6an" path="res://character_scenes/flag.tscn" id="4_qsa1g"]
 [ext_resource type="PackedScene" uid="uid://deaqtkif8sdpp" path="res://ui.tscn" id="6_ydhtl"]
 [ext_resource type="Script" path="res://ui.gd" id="7_7j8if"]
+[ext_resource type="AudioStream" uid="uid://du31eqmpyqbvi" path="res://Sounds4AidanEpic/HikingST.mp3" id="9_ap4qh"]
+[ext_resource type="AudioStream" uid="uid://bd14lqpg0kc8o" path="res://Sounds4AidanEpic/ambient!.mp3" id="10_anmsq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_73qkl"]
 
@@ -1588,3 +1590,9 @@ libraries = {
 
 [node name="IntroCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.684563, 0, -0.728954, 0, 1, 0, 0.728954, 0, -0.684563, 208.729, 48.2661, -129.187)
+
+[node name="StartScreenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ap4qh")
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_anmsq")

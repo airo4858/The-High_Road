@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=32 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" path="res://addons/proto_controller/proto_controller.gd" id="1_hpbhc"]
 [ext_resource type="Script" path="res://addons/proto_controller/Arduino.cs" id="2_xhkah"]
 [ext_resource type="PackedScene" uid="uid://dxpv1cje7u2dr" path="res://character_scenes/model_great.tscn" id="3_348ia"]
+[ext_resource type="AudioStream" uid="uid://dewjbdj5j6o41" path="res://Sounds4AidanEpic/walk2.mp3" id="4_uqbi6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j341"]
 albedo_color = Color(0.126, 0.3283, 0.84, 1)
@@ -2362,6 +2363,9 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.226607, 0.491999,
 visible = false
 material_override = SubResource("StandardMaterial3D_f7mv7")
 mesh = SubResource("SphereMesh_ra3d1")
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uqbi6")
 
 [connection signal="body_entered" from="RightArm" to="." method="_on_right_arm_body_entered"]
 [connection signal="body_entered" from="LeftArm" to="." method="_on_left_arm_body_entered"]

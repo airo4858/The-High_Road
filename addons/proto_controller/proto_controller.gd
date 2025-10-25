@@ -22,6 +22,7 @@ var skeleton : Skeleton3D
 
 var model : Node3D
 var helmet : MeshInstance3D
+var sound_bool : bool = false
 
 var right_bone_name := "UpperArm.R"
 var right_ROTATION_START = Quaternion(0.004, 0.006, 0.600, 0.799).normalized()
@@ -232,13 +233,18 @@ func set_right_arm_rotation(rotate: float):
 
 func move_player(button: int):
 	if button == 1:
-		animation.play("walk")
 		if !main_animation.is_playing():
+			animation.play("walk")
+			if sound_bool == false:
+				$WalkSound.play()
+				sound_bool = true
 			Input.action_press("ui_up")
 			right_arm.monitoring = false
 			left_arm.monitoring = false
 	else:
 		velocity = Vector3(0,0,0)
+		$WalkSound.stop()
+		sound_bool = false
 		right_arm.monitoring = true
 		left_arm.monitoring = true
 		if animation.is_playing():
