@@ -41,9 +41,9 @@ public partial class Arduino : Node
 		//GD.Print(SensorButton);
 		
 		//Camera Rotation
-		if (Sensor1 >= 284)
+		if (Sensor1 >= 128)
 			controller.Call("set_input_direction", -0.8);
-		else if (Sensor1 <= 262)
+		else if (Sensor1 <= 105)
 			controller.Call("set_input_direction", 0.8);
 		else
 			controller.Call("set_input_direction", 0.0);

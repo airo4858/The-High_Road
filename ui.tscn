@@ -94,14 +94,15 @@ Sounds: Max Dietz"
 
 [node name="Instructions" type="Label" parent="StartCredits"]
 layout_mode = 0
-offset_left = 871.0
-offset_top = 25.0
+offset_left = 822.0
+offset_top = -4.0
 offset_right = 1127.0
-offset_bottom = 100.0
+offset_bottom = 97.0
 theme_override_font_sizes/font_size = 16
 text = "Squeeze Arms to Stop
 Rotate Waist to Control Direction
-Move Arms to Punch!"
+Move Arms to Punch!
+You must be stopped to move the arms"
 
 [node name="ToStart" type="Label" parent="StartCredits"]
 layout_mode = 0
