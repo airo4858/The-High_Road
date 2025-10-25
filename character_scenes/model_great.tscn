@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxpv1cje7u2dr"]
 
-[ext_resource type="PackedScene" uid="uid://2qbkxgeh2ox" path="res://Humanoid_Rigged Great.glb" id="1_fv8hg"]
+[ext_resource type="PackedScene" uid="uid://2qbkxgeh2ox" path="res://character_scenes/Humanoid_Rigged Great.glb" id="1_fv8hg"]
 
 [node name="Model" type="Node3D"]
 

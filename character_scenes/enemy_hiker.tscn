@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b6i2m3ik1a118"]
+[gd_scene load_steps=35 format=3 uid="uid://b6i2m3ik1a118"]
 
 [ext_resource type="Script" path="res://character_scenes/enemy_hiker.gd" id="1_40vuq"]
 [ext_resource type="Script" path="res://States/state_machine.gd" id="1_qp77q"]
@@ -23,9 +23,6 @@ height = 0.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4xha"]
 radius = 1.7
 height = 3.7
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_8ajkb"]
-radius = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uql63"]
 
@@ -1465,22 +1462,10 @@ tracks/40/keys = {
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("../../Hit/HitCollision:disabled")
+tracks/41/path = NodePath("../../Mesh:position")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.13333, 1.33333, 1.36667, 1.66667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, false, true, true]
-}
-tracks/42/type = "value"
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/path = NodePath("../../Mesh:position")
-tracks/42/interp = 1
-tracks/42/loop_wrap = true
-tracks/42/keys = {
 "times": PackedFloat32Array(0, 1.66667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -1785,22 +1770,10 @@ tracks/40/keys = {
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("../../Hit/HitCollision:disabled")
+tracks/41/path = NodePath("../../Mesh:position")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.13333, 1.33333, 1.36667, 1.66667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, false, true, true]
-}
-tracks/42/type = "value"
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/path = NodePath("../../Mesh:position")
-tracks/42/interp = 1
-tracks/42/loop_wrap = true
-tracks/42/keys = {
 "times": PackedFloat32Array(0, 1.66667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -2446,7 +2419,7 @@ transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011
 shape = SubResource("CapsuleShape3D_oamyr")
 
 [node name="RightArmCollision2" type="CollisionShape3D" parent="RightArm"]
-transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, -0.255, -0.6, -0.1)
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, -0.255, -0.568236, -0.161806)
 shape = SubResource("CapsuleShape3D_f4xha")
 
 [node name="LeftArm" type="Area3D" parent="."]
@@ -2458,18 +2431,8 @@ transform = Transform3D(-0.25, 3.26172e-08, 2.12447e-08, -3.66936e-08, -0.243011
 shape = SubResource("CapsuleShape3D_oamyr")
 
 [node name="LeftArmCollision2" type="CollisionShape3D" parent="LeftArm"]
-transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, 0.255, -0.6, -0.1)
+transform = Transform3D(0.149974, 0.00280563, 6.21501e-05, -0.00128154, 0.0655153, 0.13493, 0.00249662, -0.134907, 0.0655278, 0.255, -0.566078, -0.166005)
 shape = SubResource("CapsuleShape3D_f4xha")
-
-[node name="Hit" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38419e-07, 0)
-collision_layer = 0
-monitoring = false
-
-[node name="HitCollision" type="CollisionShape3D" parent="Hit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56978, 0.58162)
-shape = SubResource("SphereShape3D_8ajkb")
-disabled = true
 
 [node name="Detection" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -2544,7 +2507,7 @@ bones/42/position = Vector3(-3.54835e-05, 1.48118e-05, 4.00612e-07)
 bones/44/position = Vector3(-0.134747, -0.0868488, 0.538057)
 
 [node name="backpack" parent="Model/Humanoid_Rigged Great/Rig/Skeleton3D" index="0"]
-transform = Transform3D(-0.165622, -1.56496e-08, 0.0319987, -1.1785e-08, 0.168685, 2.32094e-08, -0.0319987, 6.92491e-09, -0.165622, 0.0148563, 1.08729, -0.153876)
+transform = Transform3D(-0.165622, -1.65922e-08, 0.0319987, -1.39238e-08, 0.168685, 5.60674e-09, -0.0319987, 1.82361e-08, -0.165622, 0.0148563, 1.08729, -0.153876)
 
 [node name="AnimationPlayer" parent="Model/Humanoid_Rigged Great" index="1"]
 libraries = {

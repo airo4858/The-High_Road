@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://2qbkxgeh2ox"
-path="res://.godot/imported/Humanoid_Rigged Great.glb-48520524e72324c0e0f86e489d74efa2.scn"
+path="res://.godot/imported/Humanoid_Rigged Great.glb-c34338a176b88518780e3f6ea6503dbb.scn"
 
 [deps]
 
-source_file="res://Humanoid_Rigged Great.glb"
-dest_files=["res://.godot/imported/Humanoid_Rigged Great.glb-48520524e72324c0e0f86e489d74efa2.scn"]
+source_file="res://character_scenes/Humanoid_Rigged Great.glb"
+dest_files=["res://.godot/imported/Humanoid_Rigged Great.glb-c34338a176b88518780e3f6ea6503dbb.scn"]
 
 [params]
 
