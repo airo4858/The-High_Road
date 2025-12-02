@@ -15,6 +15,7 @@ var death_box : Area3D
 var death_box_checker : Array
 var ui : CanvasLayer
 var ui_gameover : Label
+var ui_winner : Label
 var ui_animation : AnimationPlayer
 var animation : AnimationPlayer
 var main_animation : AnimationPlayer
@@ -29,8 +30,8 @@ var right_ROTATION_START = Quaternion(0.004, 0.006, 0.600, 0.799).normalized()
 var right_ROTATION_END   = Quaternion(0.361, 0.368, 0.553, 0.653).normalized()
 var right_INPUT_MIN = 210.0
 var right_INPUT_MAX = 115.0
-var left_INPUT_MIN = 40.0
-var left_INPUT_MAX = 120.0
+var left_INPUT_MIN = 285.0
+var left_INPUT_MAX = 359.0
 
 var left_bone_name := "UpperArm.L"
 var left_ROTATION_START = Quaternion(0.004, -0.006, -0.600, 0.799).normalized()
@@ -97,6 +98,7 @@ func _ready() -> void:
 	death_box = get_node("/root/Main/DeathBox")
 	ui = get_node("/root/Main/UI")
 	ui_gameover = get_node("/root/Main/UI/GameOver")
+	ui_winner = get_node("/root/Main/UI/Winner")
 	ui_animation = get_node("/root/Main/UI/UIAnimation")
 	main_animation = get_node("/root/Main/StartAnimation")
 	animation = get_node("Model/Humanoid_Rigged Great/AnimationPlayer")
@@ -204,7 +206,7 @@ func set_input_direction(dir: float):
 	input_dir = dir
 	
 func move_left_arm():
-	left_arm.rotation_degrees.x = -0.775*left_arm_rotate +11
+	left_arm.rotation_degrees.x = -0.838*left_arm_rotate +218.78
 	
 	var left_bone_index = skeleton.find_bone(left_bone_name)
 	var left_t = clamp((left_arm_rotate - left_INPUT_MIN) / (left_INPUT_MAX - left_INPUT_MIN), 0.0, 1.0)
@@ -218,7 +220,7 @@ func set_left_arm_rotation(rotate: float):
 	left_arm_rotate = rotate
 
 func move_right_arm():
-	right_arm.rotation_degrees.x = 0.653*right_arm_rotate - 157.05
+	right_arm.rotation_degrees.x = 0.653*right_arm_rotate - 167.05
 	
 	var right_bone_index = skeleton.find_bone(right_bone_name)
 	var right_t = clamp((right_arm_rotate - right_INPUT_MIN) / (right_INPUT_MAX - right_INPUT_MIN), 0.0, 1.0)
@@ -304,6 +306,10 @@ func _on_right_arm_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		print("Right Arm Hit")
 		body.hit()
+		
+func _on_win_box_body_entered(body: Node3D) -> void:
+	if body.is_in_group("End_Goal"):
+		ui_winner.visible = true
 
 func player_hit():
 	health -= 1
@@ -311,10 +317,9 @@ func player_hit():
 		ui_gameover.visible = true
 		helmet.visible = false
 		model.visible = false
-		animation.play("poof")
-		await animation.animation_finished
-		queue_free()
 		get_tree().paused = true
+		#queue_free()
+		animation.play("poof")
 
 #func player_ragdoll():
 	
@@ -328,6 +333,6 @@ func enter_death_box():
 		ui_gameover.visible = true
 		helmet.visible = false
 		model.visible = false
+		get_tree().paused = true
+		#queue_free()
 		animation.play("poof")
-		await animation.animation_finished
-		queue_free()

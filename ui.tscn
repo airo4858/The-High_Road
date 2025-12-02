@@ -74,6 +74,16 @@ offset_bottom = 378.0
 theme_override_font_sizes/font_size = 100
 text = "Game Over"
 
+[node name="Winner" type="Label" parent="."]
+visible = false
+offset_left = 307.0
+offset_top = 241.0
+offset_right = 850.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 100
+text = "Winner!"
+horizontal_alignment = 1
+
 [node name="Logo" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.00392157)
